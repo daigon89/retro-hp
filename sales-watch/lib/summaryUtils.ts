@@ -130,7 +130,14 @@ export interface SalesSummary {
 
   /** クーリングオフ件数 */
   cooling_off_count: number;
-  /** クーリングオフ込み成約件数 (contracts + cooling_off) */
+  /**
+   * クーリングオフ込み成約件数 — 正味の成約件数（クーリングオフ解約を差し引いた実質成約）
+   *
+   * "込み" は「クーリングオフが込み（含まれた状態）の成約件数を取り出す」という意味ではなく、
+   * 「クーリングオフ件数を考慮した上での正味成約件数」を指す。
+   * 実装: contract_count（アポ基準成約）− cooling_off_count（クーリングオフ件数）
+   * シートの数式も同様に引き算（= 成約件数 − クーリングオフ件数）で一致している。
+   */
   contract_with_cooling_off: number;
   /** クーリングオフ率 (cooling_off / contract_with_cooling_off) */
   cooling_off_rate: number | null;
@@ -318,10 +325,11 @@ export function computeSummary(
     (r) => r.成約後ステータス === "クーリングオフ"
   ).length;
 
-  // クーリングオフ込み成約件数
+  // 正味成約件数 = 成約件数(アポ基準) − クーリングオフ件数（クーリングオフを除いた実質成約）
+  // 命名が "込み" だが実装は引き算であることに注意。シート側も同じ計算（引き算）で一致。
   const contract_with_cooling_off = contract_count - cooling_off_count;
 
-  // クーリングオフ率 = クーリングオフ件数 / 成約件数
+  // クーリングオフ率 = クーリングオフ件数 / 成約件数（アポ基準）
   const cooling_off_rate =
     contract_count > 0 ? cooling_off_count / contract_count : null;
 

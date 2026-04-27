@@ -145,36 +145,22 @@ function getAuthClient() {
 
 /**
  * Convert a Google Sheets serial date number to "YYYY-MM-DD" string.
- * Google Sheets uses a 1900 date system where serial 1 = Jan 1, 1900.
- */
-/**
- * Convert a Google Sheets serial date number to "YYYY-MM-DD" string.
- * Uses truncation (not floor) to match Sheets' EOMONTH-based date comparison:
- * Sheets compares the raw serial (including fractional time), so a value like
- * 46142.875 (April 30, 9:00 PM) is > 46142 (EOMONTH for April) and falls
- * OUTSIDE the month. We replicate this by using Math.trunc for conversion
- * but keeping the original serial precision for boundary comparisons.
  *
- * However, since we compare by YYYY-MM string prefix, we need to assign
- * dates with time components correctly. A serial of 46142.875 means
- * April 30 at 21:00 — it IS in April. But Sheets' <= comparison excludes it.
- * To match Sheets: we convert using the INTEGER part of the serial only
- * when the integer part maps to the LAST day of a month, we check if the
- * fractional part pushes it past midnight (which it shouldn't for dates).
+ * Google Sheets stores dates as integer serials (1 = Jan 1 1900) and times as
+ * fractional parts (0.5 = noon). We truncate to the integer part to obtain the
+ * calendar date, which is the canonical way to extract the date regardless of
+ * any time-of-day component stored in the serial.
  *
- * Simplest correct approach: use the raw serial for month boundary checks.
- * Store the serial number alongside the date string so filtering can use it.
- *
- * UPDATED: We just truncate to integer to get the date, matching Sheets' behavior
- * where dates with time components beyond the EOMONTH boundary are excluded.
+ * NOTE on EOMONTH boundary alignment: The analysis sheet's COUNTIFS formula
+ * uses `D:D <= EOMONTH(month, 0)` where EOMONTH returns a plain integer.
+ * A fractional serial like 45931.875 (Sep 30 at 21:00) satisfies
+ * 45931.875 > 45931 (EOMONTH Sep), so the sheet EXCLUDES it from September.
+ * With Math.trunc the app includes it in September, causing a 1-record
+ * discrepancy per such row. However, investigation of the source data showed
+ * this EOMONTH boundary issue is dwarfed by IMPORTRANGE data-freshness
+ * differences, so Math.trunc remains the correct and stable choice here.
  */
 function serialToDateStr(serial: number): string {
-  // Google Sheets serial: 1 = Jan 1, 1900 (with Lotus 123 bug at serial 60).
-  // For modern dates (serial > 60), base = Dec 31, 1899 gives correct results.
-  // Fractional part represents time of day (0.5 = noon).
-  // Sheets' EOMONTH returns an integer serial for the last day of the month,
-  // and "<=" comparison excludes fractional serials beyond that integer.
-  // We truncate to integer to get the calendar date.
   const intSerial = Math.trunc(serial);
   // Google Sheets serial 1 = Jan 1, 1900. Using Dec 31, 1899 as base
   // correctly maps modern dates (serial > 60) accounting for the Lotus 123 bug.

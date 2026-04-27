@@ -7,8 +7,8 @@
  *
  * Metrics per cell:
  *   - 成約数   (contract_count): アポステータス === "成約" のアポ件数
- *   - 決着数   (settled_count): アポステータスが「ブリッジ」以外の最終結果に至った件数
- *                                具体的には "成約" or "失注"
+ *   - 決着数   (settled_count): 成約 + 失注 + (ブリッジ かつ アポ予定日 < Today()-10日)
+ *                                This matches the analysis sheet formula and summaryUtils.ts.
  *   - 成約率   (contract_rate): 成約数 / 決着数 (null if 決着数 === 0)
  *
  * Data source: 統合マスタ (ApoRow[]), filtered by アポ予定日 year-month when ym is set.
@@ -17,9 +17,27 @@
 import { ApoRow, StaffRow } from "@/lib/sheets";
 import { extractYearMonth } from "@/lib/filterUtils";
 
-// Statuses that represent a final settlement (決着) — not ブリッジ, not pending
-const SETTLED_STATUSES = ["成約", "失注"];
+// Statuses with a final terminal outcome (成約 / 失注).
+// ブリッジ that are more than 10 days old are also counted as settled — see isBridgeSettled().
+const TERMINAL_SETTLED_STATUSES = ["成約", "失注"];
+const BRIDGE_STATUS = "ブリッジ";
 const CONTRACT_STATUS = "成約";
+
+/** Returns the Date 10 days ago at local midnight. */
+function getTenDaysAgo(): Date {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - 10);
+  return d;
+}
+
+/** Parse "YYYY-MM-DD" or "YYYY/MM/DD" into a local-midnight Date (null if unparseable). */
+function parseDate(dateStr: string): Date | null {
+  if (!dateStr) return null;
+  const m = dateStr.match(/^(\d{4})[\/\-](\d{2})[\/\-](\d{2})/);
+  if (!m) return null;
+  return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+}
 
 export interface CrossCell {
   contract_count: number;
@@ -114,12 +132,21 @@ export function computeCrossMatrix(
   const grandTotalRaw: CrossCell = makeEmptyCell();
 
   // 5. Accumulate data
+  const tenDaysAgo = getTenDaysAgo();
   for (const row of filtered) {
     const name = row.営業担当者;
     const channel = row.導線種別;
     const status = row.アポステータス;
 
-    const isSettled = SETTLED_STATUSES.includes(status);
+    // 決着 = 成約 or 失注 or (ブリッジ and アポ予定日 is more than 10 days ago)
+    const isTerminalSettled = TERMINAL_SETTLED_STATUSES.includes(status);
+    const isBridgeSettled =
+      status === BRIDGE_STATUS &&
+      (() => {
+        const d = parseDate(row.アポ予定日);
+        return d !== null && d < tenDaysAgo;
+      })();
+    const isSettled = isTerminalSettled || isBridgeSettled;
     const isContract = status === CONTRACT_STATUS;
 
     if (!name || !channel) continue;
