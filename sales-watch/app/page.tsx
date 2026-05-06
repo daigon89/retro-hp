@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCachedApoData, getCachedContractData } from "@/lib/dataCache";
+import { getCachedApoData, getCachedContractData, getCachedPreData } from "@/lib/dataCache";
 import { computeSummary } from "@/lib/summaryUtils";
 import KpiHighlightCards from "@/components/KpiHighlightCards";
 
@@ -22,21 +22,24 @@ export default async function HomePage() {
 
   let apoRows: import("@/lib/sheets").ApoRow[] = [];
   let contractRows: import("@/lib/sheets").ContractRow[] = [];
+  let preRows: import("@/lib/sheets").PreRow[] = [];
   let errorMessage: string | null = null;
 
   try {
-    const [apo, contracts] = await Promise.all([
+    const [apo, contracts, pre] = await Promise.all([
       getCachedApoData(),
       getCachedContractData(),
+      getCachedPreData(),
     ]);
     apoRows = apo;
     contractRows = contracts;
+    preRows = pre;
   } catch (error) {
     errorMessage =
       error instanceof Error ? error.message : "データの取得に失敗しました";
   }
 
-  const summary = computeSummary(apoRows, contractRows, currentYm);
+  const summary = computeSummary(apoRows, contractRows, currentYm, preRows);
 
   const ymLabel = `${currentYm.slice(0, 4)}年${currentYm.slice(5, 7)}月`;
 
