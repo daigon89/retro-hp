@@ -169,9 +169,9 @@ export function computeSummary(
     ? apoRows.filter((r) => extractYearMonth(r.アポ予定日) === ym)
     : apoRows;
 
-  // プレ情報: filter by アポ日 (F column in dashboard formula, NOT プレ予定日)
+  // プレ情報: filter by プレ予定日 (the month the presentation actually took place)
   const filteredPre = ym
-    ? preRows.filter((r) => extractYearMonth(r.アポ日) === ym)
+    ? preRows.filter((r) => extractYearMonth(r.プレ予定日) === ym)
     : preRows;
 
   // For contract rows we need two filtered sets:
