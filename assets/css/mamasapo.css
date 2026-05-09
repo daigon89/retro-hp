@@ -910,13 +910,13 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   }
 
   .ms-hero__text {
-    padding: calc(var(--grid) * 6) var(--grid) calc(var(--grid) * 3);
+    padding: calc(var(--grid) * 3) var(--grid) calc(var(--grid) * 2);
     order: 1;
   }
 
   .ms-hero__img {
     order: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
   }
 
   .ms-hero__title {
