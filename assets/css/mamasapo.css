@@ -885,11 +885,13 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
   .ms-hero-fixed__desc {
     font-size: 1.3rem;
-    text-align: center;
+    text-align: left;
   }
 
-  .ms-hero-fixed__desc br {
-    display: none;
+  .ms-hero-screen__content--left {
+    padding: calc(var(--grid) * 6) var(--grid) 0;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .ms-stats__inner {
