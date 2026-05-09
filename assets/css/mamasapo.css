@@ -44,39 +44,61 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   background: var(--ms-text);
 }
 
-/* ---------- HERO: 固定背景+テキストオーバーレイ ---------- */
-.ms-hero-fixed {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+/* ---------- HERO: 固定背景 2段構成 ---------- */
+.ms-hero-wrapper {
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.ms-hero-fixed::after {
-  content: '';
+.ms-hero-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+}
+
+.ms-hero-screen__overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+.ms-hero-screen--first .ms-hero-screen__overlay {
   background: linear-gradient(
     to bottom,
-    rgba(42, 35, 32, 0.1) 0%,
-    rgba(42, 35, 32, 0.3) 50%,
-    rgba(42, 35, 32, 0.6) 100%
+    rgba(42, 35, 32, 0.15) 0%,
+    rgba(42, 35, 32, 0.35) 60%,
+    rgba(42, 35, 32, 0.55) 100%
   );
 }
 
-.ms-hero-fixed__content {
+.ms-hero-screen--second .ms-hero-screen__overlay {
+  background: rgba(42, 35, 32, 0.5);
+}
+
+/* 1画面目: 右下 */
+.ms-hero-screen__content {
   position: relative;
   z-index: 1;
-  text-align: right;
   color: #fff;
+}
+
+.ms-hero-screen__content--right {
+  margin-left: auto;
+  margin-top: auto;
+  text-align: right;
   padding: 0 calc(var(--grid) * 4) calc(var(--grid) * 4) 0;
+  max-width: 700px;
+}
+
+/* 2画面目: 左寄せ・上下中央 */
+.ms-hero-screen__content--left {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 calc(var(--grid) * 4);
   max-width: 700px;
 }
 
@@ -96,20 +118,16 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   font-weight: 300;
   line-height: 1.8;
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   letter-spacing: 0.06em;
 }
 
-.ms-hero-fixed__title em {
-  font-style: normal;
-}
-
 .ms-hero-fixed__desc {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 2.2;
-  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 2.4;
+  letter-spacing: 0.04em;
 }
 
 /* ---------- 実績バー ---------- */
@@ -844,19 +862,28 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 1023px) {
-  .ms-hero-fixed {
+  .ms-hero-wrapper {
     background-attachment: scroll;
-    align-items: flex-end;
-    justify-content: center;
   }
 
-  .ms-hero-fixed__content {
+  .ms-hero-screen__content--right {
+    padding: 0 var(--grid) calc(var(--grid) * 3);
     text-align: center;
-    padding: 0 var(--grid) calc(var(--grid) * 4);
+    margin-left: 0;
+  }
+
+  .ms-hero-screen__content--left {
+    padding: var(--grid);
+    justify-content: center;
   }
 
   .ms-hero-fixed__title {
     font-size: 2.6rem;
+  }
+
+  .ms-hero-fixed__desc {
+    font-size: 1.3rem;
+    text-align: center;
   }
 
   .ms-hero-fixed__desc br {
@@ -966,6 +993,10 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 @media (max-width: 680px) {
   .ms-hero-fixed__title {
     font-size: 2.2rem;
+  }
+
+  .ms-hero-screen__content--right {
+    text-align: center;
   }
 
   .ms-reason {

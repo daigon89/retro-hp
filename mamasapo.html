@@ -38,16 +38,26 @@
 
   <main>
 
-    <!-- ===== HERO: 固定背景+テキストオーバーレイ ===== -->
-    <section class="ms-hero-fixed" style="background-image: url('assets/img/mamasapo/photo5.jpg');" aria-label="ヒーロー">
-      <div class="ms-hero-fixed__content">
-        <p class="ms-hero-fixed__label js-visible">Mama Support</p>
-        <h1 class="ms-hero-fixed__title js-visible" data-delay="100">
-          子育てしながら、<br><em>自分らしい働き方</em>を<br>見つけていく。
-        </h1>
-        <p class="ms-hero-fixed__desc js-visible" data-delay="200">子育て中のママが、自分のペースで在宅ワークを始めるための<br>個別サポートサービスです。累計1,000名以上の支援実績をもとに、<br>あなたに合ったスキルと働き方をご提案します。</p>
-      </div>
-    </section>
+    <!-- ===== HERO: 固定背景 2段構成 ===== -->
+    <div class="ms-hero-wrapper" style="background-image: url('assets/img/mamasapo/photo5.jpg');">
+      <!-- 1画面目: キャッチコピー 右下 -->
+      <section class="ms-hero-screen ms-hero-screen--first" aria-label="ヒーロー">
+        <div class="ms-hero-screen__overlay"></div>
+        <div class="ms-hero-screen__content ms-hero-screen__content--right">
+          <p class="ms-hero-fixed__label js-visible">Mama Support</p>
+          <h1 class="ms-hero-fixed__title js-visible" data-delay="100">
+            子育てしながら、<br>自分らしい働き方を<br>見つけていく。
+          </h1>
+        </div>
+      </section>
+      <!-- 2画面目: 説明文 左寄せ -->
+      <section class="ms-hero-screen ms-hero-screen--second" aria-label="サービス説明">
+        <div class="ms-hero-screen__overlay"></div>
+        <div class="ms-hero-screen__content ms-hero-screen__content--left">
+          <p class="ms-hero-fixed__desc js-visible">子育て中のママが、自分のペースで在宅ワークを始めるための<br>個別サポートサービスです。累計1,000名以上の支援実績をもとに、<br>あなたに合ったスキルと働き方をご提案します。</p>
+        </div>
+      </section>
+    </div>
 
     <!-- ===== 実績バー ===== -->
     <section class="ms-stats" aria-label="実績">
