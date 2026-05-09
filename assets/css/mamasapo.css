@@ -97,9 +97,11 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 /* 2画面目: 左寄せ・上下中央 */
 .ms-hero-screen__content--left {
   display: flex;
-  align-items: center;
-  padding: 0 0 0 calc(var(--grid) * 4);
-  max-width: 700px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 calc(var(--grid) * 4);
+  max-width: 100%;
+  width: 100%;
 }
 
 .ms-hero-fixed__label {
