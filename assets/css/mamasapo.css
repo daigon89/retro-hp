@@ -867,9 +867,11 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   }
 
   .ms-hero-screen__content--right {
-    padding: 0 var(--grid) calc(var(--grid) * 3);
-    text-align: center;
+    padding: calc(var(--grid) * 6) var(--grid) 0;
+    text-align: left;
     margin-left: 0;
+    margin-top: 0;
+    align-self: flex-start;
   }
 
   .ms-hero-screen__content--left {
