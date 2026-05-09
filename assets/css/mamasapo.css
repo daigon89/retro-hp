@@ -50,6 +50,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   background-position: center 60%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
 }
 
 .ms-hero-screen {
@@ -58,8 +60,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   height: 100vh;
   height: 100svh;
   display: flex;
-  margin-top: -1px;
-  padding-top: 1px;
+  flex-shrink: 0;
 }
 
 .ms-hero-screen__overlay {
@@ -69,27 +70,11 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 }
 
 .ms-hero-screen--first .ms-hero-screen__overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(42, 35, 32, 0.15) 0%,
-    rgba(42, 35, 32, 0.35) 60%,
-    rgba(42, 35, 32, 0.5) 100%
-  );
+  background: rgba(42, 35, 32, 0.4);
 }
 
 .ms-hero-screen--second .ms-hero-screen__overlay {
   background: rgba(42, 35, 32, 0.5);
-}
-
-/* 境目の線を消す */
-.ms-hero-wrapper {
-  font-size: 0;
-  line-height: 0;
-}
-
-.ms-hero-screen {
-  font-size: 1.6rem;
-  line-height: 1.8;
 }
 
 /* 1画面目: 右下 */
