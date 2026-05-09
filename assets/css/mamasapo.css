@@ -155,7 +155,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   display: block;
   font-family: var(--font-en);
   font-size: 3.2rem;
-  font-weight: 700;
+  font-weight: 300;
   color: var(--accent);
   line-height: 1;
 }
@@ -197,9 +197,9 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   display: block;
   font-family: var(--font-en);
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .ms-stats__text {
