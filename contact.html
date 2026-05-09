@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 株式会社Retro</title>
+  <meta name="description" content="株式会社Retroへのお問い合わせはこちらから。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <a href="index.html" class="header-logo" aria-label="株式会社Retro ホーム"><img src="assets/img/logo.png" alt="Re:tro" class="header-logo__img"></a>
+    <nav class="header-nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="corporate.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="buzzlikes.html">BUZZLIKES</a>
+      <a href="recruit.html">Recruit</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="sp-menu" role="dialog" aria-label="モバイルメニュー">
+    <a href="index.html">Home</a>
+    <a href="corporate.html">About</a>
+    <a href="service.html">Services</a>
+    <a href="buzzlikes.html">BUZZLIKES</a>
+    <a href="recruit.html">Recruit</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero--sub" aria-label="お問い合わせ">
+      <div class="hero__bg"></div>
+      <div class="hero__content">
+        <h1><span class="hero__title">Contact</span></h1>
+        <p class="hero__subtitle">お問い合わせ</p>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading js-visible">
+          <p class="section-heading__en">Contact Form</p>
+          <p class="section-heading__jp">お問い合わせフォーム</p>
+        </div>
+        <form class="form-grid js-visible" data-delay="100" action="" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="lastname">姓 <span class="required">必須</span></label>
+              <input type="text" id="lastname" name="lastname" required autocomplete="family-name">
+            </div>
+            <div class="form-group">
+              <label for="firstname">名 <span class="required">必須</span></label>
+              <input type="text" id="firstname" name="firstname" required autocomplete="given-name">
+            </div>
+          </div>
+          <div class="form-row form-row--full">
+            <div class="form-group">
+              <label for="company">会社名</label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="tel">電話番号 <span class="required">必須</span></label>
+              <input type="tel" id="tel" name="tel" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row form-row--full">
+            <div class="form-group">
+              <label for="message">お問い合わせ内容</label>
+              <textarea id="message" name="message" rows="6"></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">
+              送信する
+              <svg class="btn-details__arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="2" y1="10" x2="16" y2="10"/>
+                <polyline points="11,5 16,10 11,15"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/img/logo.png" alt="Re:tro" class="footer-logo__img">
+          <p>株式会社Retro<br>〒101-0061<br>東京都千代田区神田三崎町3-4-4<br>グラン水道橋1F</p>
+          <div class="footer-social">
+            <a href="https://line.me/" target="_blank" rel="noopener noreferrer" aria-label="LINE">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 5.81 2 10.5c0 4.08 3.42 7.5 8.05 8.36.31.07.74.21.85.48.1.25.06.63.03.88l-.14.81c-.04.24-.2.93.81.51 1.01-.43 5.44-3.2 7.43-5.48C20.96 13.86 22 12.26 22 10.5 22 5.81 17.52 2 12 2z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41.61.24 1.05.52 1.51.98s.74.9.98 1.51c.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44a4.08 4.08 0 01-.98 1.51 4.08 4.08 0 01-1.51.98c-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.08 4.08 0 01-1.51-.98 4.08 4.08 0 01-.98-1.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44.24-.61.52-1.05.98-1.51s.9-.74 1.51-.98c.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.84 5.84 0 00-2.11 1.37A5.84 5.84 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.37 2.11a5.84 5.84 0 002.11 1.37c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.84 5.84 0 002.11-1.37 5.84 5.84 0 001.37-2.11c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.84 5.84 0 00-1.37-2.11A5.84 5.84 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+            </a>
+            <a href="https://note.com/re_tro" target="_blank" rel="noopener noreferrer" aria-label="note">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__title">Sitemap</p>
+          <a href="index.html">Home</a>
+          <a href="corporate.html">About</a>
+          <a href="service.html">Services</a>
+          <a href="buzzlikes.html">BUZZLIKES</a>
+          <a href="recruit.html">Recruit</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__title">Information</p>
+          <p>株式会社Retro<br>代表取締役 三島 誠司<br>設立 2022年2月25日</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Retro Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

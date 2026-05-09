@@ -1,0 +1,12 @@
+.env
+.playwright-mcp/
+node_modules/
+.DS_Store
+sales-watch/
+
+# Screenshots (dev only)
+retro-*.png
+pikkas-*.png
+mamasapo-*.png
+current-*.png
+ref-*.png

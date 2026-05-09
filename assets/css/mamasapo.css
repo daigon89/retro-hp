@@ -1,0 +1,1055 @@
+/* ================================================
+   ママサポ — 専用スタイルシート
+   ================================================ */
+
+/* ---------- フォント・カラー上書き（参考サイト準拠）---------- */
+:root {
+  --ms-serif: 'Noto Serif JP', serif;
+  --ms-sans: 'Noto Sans JP', sans-serif;
+  --ms-text: #2A2320;
+  --ms-text-sub: #6B5E58;
+  --ms-bg: #FAF8F6;
+}
+
+/* ママサポページの基本テキスト */
+body:has(.ms-hero),
+body:has(.ms-page-hero) {
+  font-family: var(--ms-sans);
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: var(--ms-text);
+  line-height: 1.9;
+}
+
+/* ---------- ママサポ ヘッダー上書き ---------- */
+/* ママサポページではヘッダーを常にスクロール状態で表示 */
+
+/* ---------- HERO: スプリットレイアウト ---------- */
+.ms-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: var(--header-h);
+}
+
+.ms-hero__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--grid) * 4) calc(var(--grid) * 3);
+  background: var(--bg-alt);
+}
+
+.ms-hero__label {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ms-text-sub);
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+}
+
+.ms-hero__title {
+  font-family: var(--ms-serif);
+  font-size: 4.2rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--ms-text);
+  margin-bottom: 2.4rem;
+  letter-spacing: 0.02em;
+}
+
+.ms-hero__title em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.ms-hero__desc {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 2.2;
+  margin-bottom: 3.2rem;
+  max-width: 480px;
+}
+
+.ms-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 3.2rem;
+  background: var(--ms-text);
+  color: #fff;
+  font-family: var(--ms-sans);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  border-radius: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+  width: fit-content;
+}
+
+.ms-hero__btn:hover {
+  background: var(--ms-text-sub);
+  transform: translateY(-2px);
+}
+
+.ms-hero__btn svg {
+  transition: transform 0.3s ease;
+}
+
+.ms-hero__btn:hover svg {
+  transform: translateX(4px);
+}
+
+.ms-hero__img {
+  position: relative;
+  overflow: hidden;
+}
+
+.ms-hero__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ms-hero__badge {
+  position: absolute;
+  bottom: calc(var(--grid) * 2);
+  right: calc(var(--grid) * 2);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+  padding: 1.6rem 2.4rem;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ms-hero__badge-num {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.ms-hero__badge-num small {
+  font-size: 2rem;
+}
+
+.ms-hero__badge-label {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--text-sub);
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- 実績バー ---------- */
+.ms-stats {
+  background: var(--bg-dark);
+  padding: calc(var(--grid) * 2) 0;
+}
+
+.ms-stats__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--grid) * 3);
+  padding: 0 var(--grid);
+}
+
+.ms-stats__item {
+  text-align: center;
+  flex: 1;
+}
+
+.ms-stats__num {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.ms-stats__text {
+  display: block;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.4rem;
+}
+
+.ms-stats__divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+/* ---------- セクション共通 ---------- */
+.ms-section {
+  padding: calc(var(--grid) * 6) 0;
+}
+
+.ms-section--alt {
+  background: var(--bg-alt);
+}
+
+.ms-section__label {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ms-text-sub);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.ms-section__title {
+  font-family: var(--ms-serif);
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ms-text);
+  margin-bottom: calc(var(--grid) * 3);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- ページヒーロー（下層ページ共通） ---------- */
+.ms-page-hero {
+  height: 40vh;
+  min-height: 280px;
+  background: var(--bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--header-h);
+}
+
+.ms-page-hero__inner {
+  text-align: center;
+  padding: 0 var(--grid);
+}
+
+.ms-page-hero__label {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ms-text-sub);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.ms-page-hero__title {
+  font-family: var(--ms-serif);
+  font-size: 3.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ms-text);
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.ms-page-hero__sub {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 2;
+}
+
+/* ---------- 選ばれる理由カード ---------- */
+.ms-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--grid) * 3);
+}
+
+.ms-reason {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: calc(var(--grid) * 2);
+  align-items: center;
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-reason:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ms-reason__num {
+  font-family: var(--font-en);
+  font-size: 4.8rem;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  text-align: center;
+}
+
+.ms-reason__title {
+  font-family: var(--ms-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  color: var(--ms-text);
+}
+
+.ms-reason__text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 2.2;
+}
+
+.ms-reason__img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.ms-reason__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.ms-reason:hover .ms-reason__img img {
+  transform: scale(1.05);
+}
+
+.ms-reason--reverse {
+  grid-template-columns: 1fr 1fr 80px;
+}
+
+.ms-reason--reverse .ms-reason__num {
+  order: 3;
+}
+
+.ms-reason--reverse .ms-reason__img {
+  order: 1;
+}
+
+.ms-reason--reverse .ms-reason__body {
+  order: 2;
+}
+
+/* ---------- 代表メッセージ: フル背景 ---------- */
+.ms-message {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.ms-message__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.ms-message__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+}
+
+.ms-message__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(59, 45, 45, 0.85) 0%, rgba(59, 45, 45, 0.5) 50%, transparent 100%);
+}
+
+.ms-message__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: calc(var(--grid) * 4) calc(var(--grid) * 4);
+  color: #fff;
+}
+
+.ms-message__label {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+}
+
+.ms-message__quote {
+  font-family: var(--ms-serif);
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.ms-message__sub {
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 2.2;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 3.2rem;
+}
+
+.ms-message__name {
+  display: block;
+  font-family: var(--ms-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.ms-message__role {
+  display: block;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.4rem;
+  font-weight: 300;
+}
+
+/* ---------- フロー: 横タイムライン ---------- */
+.ms-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.ms-flow__step {
+  flex: 1;
+  text-align: center;
+  max-width: 220px;
+}
+
+.ms-flow__circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--ms-text);
+  color: var(--ms-text);
+  font-family: var(--font-en);
+  font-size: 1.6rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.6rem;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.ms-flow__step:hover .ms-flow__circle {
+  background: var(--ms-text);
+  color: #fff;
+}
+
+.ms-flow__step:hover .ms-flow__circle {
+  transform: scale(1.1);
+}
+
+.ms-flow__name {
+  font-family: var(--ms-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--ms-text);
+}
+
+.ms-flow__desc {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 1.9;
+}
+
+.ms-flow__line {
+  width: 60px;
+  height: 2px;
+  background: var(--border);
+  margin-top: 28px;
+  flex-shrink: 0;
+}
+
+/* ---------- CTA ---------- */
+.ms-cta {
+  padding: calc(var(--grid) * 4) 0;
+  background: var(--bg-alt);
+}
+
+.ms-cta__inner {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 4);
+  text-align: center;
+  color: #fff;
+}
+
+.ms-cta__title {
+  font-family: var(--ms-serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.ms-cta__desc {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3.2rem;
+}
+
+.ms-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 3.6rem;
+  background: #fff;
+  color: var(--ms-text);
+  font-family: var(--ms-sans);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- ms-about: ミッション ---------- */
+.ms-about-mission {
+  max-width: 800px;
+}
+
+.ms-about-mission p {
+  font-size: 1.6rem;
+  color: var(--text-sub);
+  line-height: 2.2;
+  margin-bottom: 1.6rem;
+}
+
+.ms-about-mission p:first-child,
+.ms-about-mission p:nth-child(2) {
+  font-family: var(--ms-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ms-text);
+}
+
+/* ---------- ms-about: 代表メッセージ（長文） ---------- */
+.ms-about-ceo {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: calc(var(--grid) * 3);
+  align-items: start;
+}
+
+.ms-about-ceo__text p {
+  font-size: 1.5rem;
+  color: var(--text-sub);
+  line-height: 2.2;
+  margin-bottom: 1.6rem;
+}
+
+.ms-about-ceo__photo img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ms-about-ceo__caption {
+  font-size: 1.2rem;
+  color: var(--text-sub);
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+/* ---------- ms-about: メディア ---------- */
+.ms-media-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--grid) * 2);
+}
+
+.ms-media-card {
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ms-media-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-en);
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+}
+
+.ms-media-card__title {
+  font-family: var(--ms-serif);
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+  color: var(--ms-text);
+}
+
+.ms-media-card__text {
+  font-size: 1.4rem;
+  color: var(--text-sub);
+  line-height: 2;
+  margin-bottom: 1.2rem;
+}
+
+.ms-media-card__link {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+.ms-media-card__link:hover {
+  color: var(--accent-hover);
+}
+
+/* ---------- ms-courses: コースカード ---------- */
+.ms-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--grid) * 2);
+}
+
+.ms-course-card {
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.ms-course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ms-course-card__num {
+  font-family: var(--font-en);
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.ms-course-card__title {
+  font-family: var(--ms-serif);
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  line-height: 1.5;
+  color: var(--ms-text);
+}
+
+.ms-course-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.ms-course-card__list li {
+  font-size: 1.4rem;
+  color: var(--text-sub);
+  line-height: 2;
+  padding-left: 1.6rem;
+  position: relative;
+}
+
+.ms-course-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.ms-course-card__tag {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-alt);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+}
+
+/* ---------- ms-courses: SNSステップ ---------- */
+.ms-sns-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(var(--grid) * 1);
+  counter-reset: sns-step;
+}
+
+.ms-sns-step {
+  text-align: center;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: calc(var(--grid) * 1.5) var(--grid);
+  position: relative;
+}
+
+.ms-sns-step__num {
+  font-family: var(--font-en);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.ms-sns-step__title {
+  font-family: var(--ms-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  color: var(--ms-text);
+}
+
+.ms-sns-step__text {
+  font-size: 1.3rem;
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+
+/* ---------- ms-voice: 体験談カード ---------- */
+.ms-voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--grid) * 2);
+}
+
+.ms-voice-card {
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-voice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ms-voice-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.ms-voice-card__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #fff;
+  font-family: var(--font-en);
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ms-voice-card__name {
+  font-family: var(--ms-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ms-text);
+}
+
+.ms-voice-card__name span {
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--text-sub);
+  margin-left: 0.4rem;
+}
+
+.ms-voice-card__profile {
+  font-size: 1.3rem;
+  color: var(--text-sub);
+  margin-top: 0.4rem;
+}
+
+.ms-voice-card__change {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  padding: 1.6rem;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+}
+
+.ms-voice-card__before,
+.ms-voice-card__after {
+  flex: 1;
+}
+
+.ms-voice-card__label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.ms-voice-card__before .ms-voice-card__label {
+  color: var(--text-sub);
+}
+
+.ms-voice-card__after .ms-voice-card__label {
+  color: var(--accent);
+}
+
+.ms-voice-card__before p,
+.ms-voice-card__after p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.ms-voice-card__arrow {
+  font-size: 2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.ms-voice-card__text {
+  font-size: 1.4rem;
+  color: var(--text-sub);
+  line-height: 2;
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 1023px) {
+  .ms-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .ms-hero__text {
+    padding: calc(var(--grid) * 6) var(--grid) calc(var(--grid) * 3);
+    order: 1;
+  }
+
+  .ms-hero__img {
+    order: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ms-hero__title {
+    font-size: 2.8rem;
+  }
+
+  .ms-stats__inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .ms-stats__divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  .ms-reason {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ms-reason__num {
+    font-size: 3.6rem;
+  }
+
+  .ms-reason--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-reason--reverse .ms-reason__num { order: 0; }
+  .ms-reason--reverse .ms-reason__body { order: 0; }
+  .ms-reason--reverse .ms-reason__img { order: 0; }
+
+  .ms-section__title {
+    font-size: 2.6rem;
+  }
+
+  .ms-page-hero__title {
+    font-size: 3rem;
+  }
+
+  .ms-message__content {
+    padding: calc(var(--grid) * 3) var(--grid);
+  }
+
+  .ms-message__quote {
+    font-size: 2rem;
+  }
+
+  .ms-message__overlay {
+    background: linear-gradient(90deg, rgba(59, 45, 45, 0.88) 0%, rgba(59, 45, 45, 0.7) 100%);
+  }
+
+  .ms-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ms-flow__step {
+    max-width: 100%;
+  }
+
+  .ms-flow__line {
+    width: 2px;
+    height: 32px;
+    margin: 0;
+  }
+
+  .ms-cta__title {
+    font-size: 2.2rem;
+  }
+
+  .ms-cta__inner {
+    padding: calc(var(--grid) * 3) var(--grid);
+  }
+
+  /* About page */
+  .ms-about-ceo {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-about-ceo__photo {
+    order: -1;
+    max-width: 400px;
+  }
+
+  .ms-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Courses page */
+  .ms-courses-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ms-sns-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Voice page */
+  .ms-voice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .ms-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .ms-hero__badge {
+    bottom: var(--grid);
+    right: var(--grid);
+    padding: 1.2rem 1.6rem;
+  }
+
+  .ms-hero__badge-num {
+    font-size: 2.4rem;
+  }
+
+  .ms-reason {
+    padding: calc(var(--grid) * 1.5);
+  }
+
+  .ms-message__quote {
+    font-size: 1.8rem;
+  }
+
+  .ms-page-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .ms-page-hero__sub {
+    font-size: 1.4rem;
+  }
+
+  /* Courses page */
+  .ms-courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-sns-steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* Voice card */
+  .ms-voice-card__change {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .ms-voice-card__arrow {
+    transform: rotate(90deg);
+  }
+}
