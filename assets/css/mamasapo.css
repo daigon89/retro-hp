@@ -382,7 +382,7 @@ body:has(.ms-page-hero) {
 .ms-message__content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 860px;
   padding: calc(var(--grid) * 4) calc(var(--grid) * 5);
   color: #fff;
 }
