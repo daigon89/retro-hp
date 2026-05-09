@@ -916,7 +916,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
   .ms-hero__img {
     order: 0;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 
   .ms-hero__title {
