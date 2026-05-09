@@ -51,8 +51,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   height: 100vh;
   height: 100svh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
@@ -63,35 +63,40 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(42, 35, 32, 0.4);
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 35, 32, 0.1) 0%,
+    rgba(42, 35, 32, 0.3) 50%,
+    rgba(42, 35, 32, 0.6) 100%
+  );
 }
 
 .ms-hero-fixed__content {
   position: relative;
   z-index: 1;
-  text-align: center;
+  text-align: right;
   color: #fff;
-  padding: 0 var(--grid);
-  max-width: 800px;
+  padding: 0 calc(var(--grid) * 4) calc(var(--grid) * 4) 0;
+  max-width: 700px;
 }
 
 .ms-hero-fixed__label {
   font-family: var(--font-en);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 .ms-hero-fixed__title {
   font-family: var(--ms-serif);
-  font-size: 4.2rem;
+  font-size: 3.6rem;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #fff;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.06em;
 }
 
@@ -100,9 +105,9 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 }
 
 .ms-hero-fixed__desc {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 2.2;
   letter-spacing: 0.02em;
 }
@@ -841,10 +846,17 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 @media (max-width: 1023px) {
   .ms-hero-fixed {
     background-attachment: scroll;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .ms-hero-fixed__content {
+    text-align: center;
+    padding: 0 var(--grid) calc(var(--grid) * 4);
   }
 
   .ms-hero-fixed__title {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
 
   .ms-hero-fixed__desc br {
@@ -953,7 +965,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 @media (max-width: 680px) {
   .ms-hero-fixed__title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .ms-reason {
