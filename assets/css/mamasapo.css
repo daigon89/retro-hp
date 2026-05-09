@@ -862,6 +862,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 @media (max-width: 1023px) {
   .ms-hero-wrapper {
     background-attachment: scroll;
+    background-position: 35% center;
   }
 
   .ms-hero-screen__content--right {
