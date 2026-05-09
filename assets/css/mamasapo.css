@@ -23,6 +23,13 @@ body:has(.ms-page-hero) {
 
 /* ---------- ママサポ ヘッダー上書き ---------- */
 /* ママサポページではヘッダーを常にスクロール状態で表示 */
+.site-header.is-scrolled .header-nav a {
+  color: var(--ms-text);
+}
+
+.site-header.is-scrolled .hamburger span {
+  background: var(--ms-text);
+}
 
 /* ---------- HERO: スプリットレイアウト ---------- */
 .ms-hero {
