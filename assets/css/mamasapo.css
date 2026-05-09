@@ -22,12 +22,25 @@ body:has(.ms-page-hero) {
 }
 
 /* ---------- ママサポ ヘッダー上書き ---------- */
-/* ママサポページではヘッダーを常にスクロール状態で表示 */
-.site-header.is-scrolled .header-nav a {
+/* ママサポページではヘッダーに常に背景+ダークテキスト */
+body:has(.ms-hero) .site-header,
+body:has(.ms-page-hero) .site-header {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+body:has(.ms-hero) .site-header .header-nav a,
+body:has(.ms-page-hero) .site-header .header-nav a {
   color: var(--ms-text);
 }
 
-.site-header.is-scrolled .hamburger span {
+body:has(.ms-hero) .site-header .header-logo__img,
+body:has(.ms-page-hero) .site-header .header-logo__img {
+  filter: none;
+}
+
+body:has(.ms-hero) .site-header .hamburger span,
+body:has(.ms-page-hero) .site-header .hamburger span {
   background: var(--ms-text);
 }
 
