@@ -67,10 +67,15 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 .ms-hero-screen {
   position: relative;
   width: 100%;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-shrink: 0;
+}
+
+.ms-hero-screen--second {
+  min-height: auto;
+  padding: calc(var(--grid) * 6) 0;
 }
 
 .ms-hero-screen__overlay {
