@@ -81,7 +81,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 .ms-hero-screen--first .ms-hero-screen__overlay,
 .ms-hero-screen--second .ms-hero-screen__overlay {
-  background: rgba(42, 35, 32, 0.45);
+  background: rgba(42, 35, 32, 0.3);
 }
 
 /* 1画面目: 右下 */
@@ -107,6 +107,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   padding: 0 calc(var(--grid) * 4);
   max-width: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .ms-hero-fixed__label {
@@ -897,9 +898,17 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   }
 
   .ms-hero-screen__content--left {
-    padding: calc(var(--grid) * 6) var(--grid) 0;
+    padding: calc(var(--grid) * 6) var(--grid) var(--grid);
     align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .ms-hero-fixed__desc {
+    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
   .ms-stats__inner {
