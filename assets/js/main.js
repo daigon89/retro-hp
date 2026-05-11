@@ -106,6 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Hero fixed background visibility ----
+  const heroBg = document.querySelector('.ms-hero-bg');
+  const heroWrapper = document.querySelector('.ms-hero-wrapper');
+  if (heroBg && heroWrapper) {
+    function updateHeroBg() {
+      const wrapperBottom = heroWrapper.getBoundingClientRect().bottom;
+      heroBg.style.opacity = wrapperBottom > 0 ? '1' : '0';
+    }
+    window.addEventListener('scroll', updateHeroBg, { passive: true });
+    updateHeroBg();
+  }
+
   // ---- FAQ Accordion ----
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {

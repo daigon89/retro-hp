@@ -46,12 +46,22 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 /* ---------- HERO: 固定背景 2段構成 ---------- */
 .ms-hero-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ms-hero-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
   background-size: cover;
   background-position: center 60%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
+  z-index: -1;
 }
 
 .ms-hero-screen {
@@ -860,10 +870,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 1023px) {
-  .ms-hero-wrapper {
-    background-attachment: fixed;
-    background-size: auto 100vh;
-    background-position: center top;
+  .ms-hero-bg {
+    background-position: 35% center;
   }
 
   .ms-hero-screen__content--right {
