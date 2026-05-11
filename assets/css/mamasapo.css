@@ -49,6 +49,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   position: relative;
   display: flex;
   flex-direction: column;
+  clip-path: inset(0);
+  -webkit-clip-path: inset(0);
 }
 
 .ms-hero-bg {
