@@ -879,7 +879,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 1023px) {
   .ms-hero-bg {
-    background-position: 35% center;
+    background-position: center center;
+    background-size: auto 85vh;
   }
 
   .ms-hero-screen__content--right {
