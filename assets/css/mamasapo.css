@@ -146,7 +146,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 .ms-hero-screen--first .ms-hero-screen__content {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 35%, transparent 65%);
-  padding: calc(var(--grid) * 8) calc(var(--grid) * 6);
+  padding: calc(var(--grid) * 10) calc(var(--grid) * 8);
 }
 
 .ms-hero-fixed__label {
@@ -915,8 +915,12 @@ body:has(.ms-page-hero) .site-header .hamburger span {
     background-size: auto 85vh;
   }
 
+  .ms-hero-screen--first .ms-hero-screen__content {
+    padding: calc(var(--grid) * 8) calc(var(--grid) * 4);
+  }
+
   .ms-hero-screen__content--right {
-    padding: calc(var(--grid) * 6) var(--grid) 0;
+    padding: calc(var(--grid) * 4) var(--grid) 0;
     text-align: left;
     margin-left: 0;
     margin-top: 0;
