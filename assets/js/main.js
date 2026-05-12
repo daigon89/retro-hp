@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Mamasapo nav active state ----
+  // ---- Mamasapo nav active state (scroll-based) ----
   const msNav = document.querySelector('.ms-nav');
   if (msNav) {
     const navLinks = msNav.querySelectorAll('a');
@@ -180,16 +180,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (section) sections.push({ link, section });
     });
 
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('is-active'));
-          const active = sections.find(s => s.section === entry.target);
-          if (active) active.link.classList.add('is-active');
-        }
+    function updateNavActive() {
+      const scrollY = window.scrollY + 200;
+      let current = null;
+      sections.forEach(s => {
+        if (s.section.offsetTop <= scrollY) current = s;
       });
-    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+      navLinks.forEach(l => l.classList.remove('is-active'));
+      if (current) current.link.classList.add('is-active');
+    }
 
-    sections.forEach(s => navObserver.observe(s.section));
+    window.addEventListener('scroll', updateNavActive, { passive: true });
+    updateNavActive();
   }
 });
