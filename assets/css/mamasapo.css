@@ -129,7 +129,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   margin-top: auto;
   text-align: right;
   padding: 0 calc(var(--grid) * 4) calc(var(--grid) * 4) 0;
-  max-width: 700px;
+  max-width: 900px;
+  white-space: nowrap;
 }
 
 /* 2画面目: 左寄せ・上下中央 */
