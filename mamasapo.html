@@ -34,29 +34,25 @@
 
   <main>
 
-    <!-- ===== 1. HERO: 固定背景 2段構成 ===== -->
-    <div class="ms-hero-wrapper">
-      <div class="ms-hero-bg" style="background-image: url('assets/img/mamasapo/photo5.jpg');"></div>
-      <!-- 1画面目: キャッチコピー 右下 -->
-      <section class="ms-hero-screen ms-hero-screen--first" aria-label="ヒーロー">
-        <div class="ms-hero-screen__overlay"></div>
-        <div class="ms-hero-screen__content ms-hero-screen__content--right">
-          <p class="ms-hero-fixed__label js-visible">Mama Support</p>
-          <h1 class="ms-hero-fixed__title js-visible" data-delay="100">
-            子育てしながら、<br>自分らしい働き方を<br>見つけていく。
+    <!-- ===== 1. HERO: 左テキスト+右画像 ===== -->
+    <section class="ms-hero-simple" aria-label="ヒーロー">
+      <div class="ms-hero-simple__inner">
+        <div class="ms-hero-simple__text">
+          <p class="ms-hero-simple__label js-visible">Mama Support</p>
+          <h1 class="ms-hero-simple__title js-visible" data-delay="100">
+            子育てしながら、<br><em>自分らしい働き方</em>を<br>見つけていく。
           </h1>
+          <p class="ms-hero-simple__desc js-visible" data-delay="200">子育て中のママが、自分のペースで在宅ワークを始めるための個別サポートサービスです。</p>
+          <div class="ms-hero-simple__badge js-visible" data-delay="300">
+            <span class="ms-hero-simple__badge-num">1,000+</span>
+            <span class="ms-hero-simple__badge-label">累計支援実績</span>
+          </div>
         </div>
-      </section>
-      <!-- 2画面目: 説明文 左寄せ -->
-      <section class="ms-hero-screen ms-hero-screen--second" aria-label="サービス説明">
-        <div class="ms-hero-screen__overlay"></div>
-        <div class="ms-hero-screen__content ms-hero-screen__content--left">
-          <p class="ms-hero-fixed__desc js-visible">子育て中のママが、<br>自分のペースで、<br>自分らしく、<br>在宅ワークを始めるための<br>個別サポートサービスです。</p>
-          <p class="ms-hero-fixed__desc js-visible" data-delay="100" style="margin-top: 2.4rem;">「働きたい気持ちはある。<br>でも、子どもとの時間も<br>大切にしたい。」<br>そんな想いを抱えるママに寄り添い、<br>累計1,000名以上の支援実績をもとに、<br>あなたの暮らしに合った<br>スキルと働き方をご提案します。</p>
-          <p class="ms-hero-fixed__desc js-visible" data-delay="200" style="margin-top: 2.4rem;">特別なスキルも、<br>パソコンも、必要ありません。<br>必要なのは、<br>「一歩踏み出してみよう」<br>という気持ちだけです。</p>
+        <div class="ms-hero-simple__img">
+          <img src="assets/img/mamasapo/photo5.jpg" alt="ママサポ">
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <!-- ===== 2. ナビバー（スティッキー） ===== -->
     <nav class="ms-nav" id="ms-nav">

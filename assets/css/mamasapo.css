@@ -12,7 +12,7 @@
 }
 
 /* ママサポページの基本テキスト */
-body:has(.ms-hero-wrapper) {
+body:has(.ms-hero-simple) {
   font-family: var(--ms-sans);
   font-weight: 300;
   font-size: 1.3rem;
@@ -21,153 +21,109 @@ body:has(.ms-hero-wrapper) {
 }
 
 /* ---------- ママサポ ヘッダー上書き ---------- */
-body:has(.ms-hero-wrapper) .site-header {
+body:has(.ms-hero-simple) .site-header {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-body:has(.ms-hero-wrapper) .site-header .header-logo__img {
+body:has(.ms-hero-simple) .site-header .header-logo__img {
   filter: none;
 }
 
-body:has(.ms-hero-wrapper) .site-header .hamburger span {
+body:has(.ms-hero-simple) .site-header .hamburger span {
   background: var(--ms-text);
 }
 
-/* ---------- HERO: 固定背景 2段構成 ---------- */
-.ms-hero-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  clip-path: inset(0);
-  -webkit-clip-path: inset(0);
+/* ---------- HERO: シンプルスプリットレイアウト ---------- */
+.ms-hero-simple {
+  background: var(--bg-alt);
+  padding-top: var(--header-h);
 }
 
-.ms-hero-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  background-size: cover;
-  background-position: center 60%;
-  background-repeat: no-repeat;
-  z-index: -1;
+.ms-hero-simple__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: calc(var(--grid) * 2);
+  padding: calc(var(--grid) * 3) var(--grid);
 }
 
-.ms-hero-screen {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-shrink: 0;
+.ms-hero-simple__text {
+  padding-right: calc(var(--grid) * 2);
 }
 
-.ms-hero-screen--second {
-  min-height: auto;
-  padding: calc(var(--grid) * 6) 0;
-}
-
-.ms-hero-screen__overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.ms-hero-screen--first .ms-hero-screen__overlay {
-  background: none;
-}
-
-.ms-hero-screen--second .ms-hero-screen__overlay {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(42, 35, 32, 0.15) 15%,
-    rgba(42, 35, 32, 0.3) 30%,
-    rgba(42, 35, 32, 0.3) 100%
-  );
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.ms-hero-screen--second.is-visible .ms-hero-screen__overlay {
-  opacity: 1;
-}
-
-.ms-hero-screen--second .ms-hero-fixed__desc {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
-}
-
-.ms-hero-screen--second.is-visible .ms-hero-fixed__desc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 1画面目: 右下 */
-.ms-hero-screen__content {
-  position: relative;
-  z-index: 0;
-  color: #fff;
-}
-
-.ms-hero-screen__content--right {
-  margin-left: auto;
-  margin-top: auto;
-  text-align: right;
-  padding: 0 calc(var(--grid) * 2) calc(var(--grid) * 2) 0;
-  max-width: 900px;
-  white-space: nowrap;
-}
-
-/* 2画面目: 左寄せ・上下中央 */
-.ms-hero-screen__content--left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 calc(var(--grid) * 4);
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.ms-hero-screen--first .ms-hero-screen__content {
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 35%, transparent 65%);
-  padding: calc(var(--grid) * 10) calc(var(--grid) * 8);
-  margin-right: calc(var(--grid) * -4);
-  margin-bottom: calc(var(--grid) * -4);
-}
-
-.ms-hero-fixed__label {
+.ms-hero-simple__label {
   font-family: var(--font-en);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.2em;
+  color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
-.ms-hero-fixed__title {
+.ms-hero-simple__title {
   font-family: var(--ms-serif);
-  font-size: 3.6rem;
+  font-size: 3.4rem;
   font-weight: 300;
-  line-height: 1.8;
-  color: #fff;
-  margin-bottom: 0;
-  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--ms-text);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
 }
 
-.ms-hero-fixed__desc {
-  font-family: var(--ms-serif);
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 2.5;
-  letter-spacing: 0.04em;
+.ms-hero-simple__title em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.ms-hero-simple__desc {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 2.2;
+  margin-bottom: 2.4rem;
+}
+
+.ms-hero-simple__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.ms-hero-simple__badge-num {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.ms-hero-simple__badge-label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ms-text-sub);
+}
+
+.ms-hero-simple__img {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ms-hero-simple__img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
 }
 
 /* ---------- 2. ナビバー（スティッキー） ---------- */
@@ -833,45 +789,19 @@ body:has(.ms-hero-wrapper) .site-header .hamburger span {
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 1023px) {
   /* Hero */
-  .ms-hero-bg {
-    background-position: center center;
-    background-size: auto 85vh;
+  .ms-hero-simple__inner {
+    grid-template-columns: 1fr;
+    padding: calc(var(--grid) * 2) var(--grid);
   }
-
-  .ms-hero-screen--first .ms-hero-screen__content {
-    padding: calc(var(--grid) * 8) calc(var(--grid) * 4);
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: calc(var(--grid) * -3);
-    margin-top: calc(var(--grid) * -3);
+  .ms-hero-simple__text {
+    padding-right: 0;
+    order: 1;
   }
-
-  .ms-hero-screen__content--right {
-    padding: calc(var(--grid) * 2) var(--grid) 0;
-    text-align: left;
-    margin-left: 0;
-    margin-top: 0;
-    align-self: flex-start;
+  .ms-hero-simple__img {
+    order: 0;
   }
-
-  .ms-hero-screen__content--left {
-    padding: calc(var(--grid) * 6) var(--grid) var(--grid);
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .ms-hero-fixed__title {
+  .ms-hero-simple__title {
     font-size: 2.6rem;
-  }
-
-  .ms-hero-fixed__desc {
-    font-size: 1.3rem;
-    text-align: left;
-    word-break: break-all;
-    overflow-wrap: break-word;
   }
 
   /* Nav */
@@ -991,12 +921,8 @@ body:has(.ms-hero-wrapper) .site-header .hamburger span {
 }
 
 @media (max-width: 680px) {
-  .ms-hero-fixed__title {
+  .ms-hero-simple__title {
     font-size: 2.2rem;
-  }
-
-  .ms-hero-screen__content--right {
-    text-align: center;
   }
 
   /* Intro */
