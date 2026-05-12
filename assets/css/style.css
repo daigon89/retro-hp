@@ -17,89 +17,14 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  font-size: 1.6rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
   line-height: 1.8;
-  color: #4A3F3F;
+  color: #2A2320;
   background-color: #FBF8F6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* ---------- OPENING ANIMATION ---------- */
-.opening {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  background: #FBF8F6;
-  animation: openingExit 0.8s cubic-bezier(0.23, 1, 0.32, 1) 2.6s forwards;
-  pointer-events: none;
-}
-
-.opening__logo {
-  width: 180px;
-  height: auto;
-  opacity: 0;
-  animation: openingLogoIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards,
-             openingLogoOut 0.5s ease 2.2s forwards;
-}
-
-.opening__tagline {
-  font-family: var(--font-en);
-  font-size: 1.3rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  opacity: 0;
-  animation: openingTagIn 0.6s ease 0.8s forwards,
-             openingTagOut 0.3s ease 2.1s forwards;
-}
-
-@keyframes openingLogoIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes openingTagIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes openingLogoOut {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(1.15); }
-}
-
-@keyframes openingTagOut {
-  to { opacity: 0; }
-}
-
-@keyframes openingExit {
-  from { clip-path: inset(0 0 0 0); }
-  to   { clip-path: inset(0 0 100% 0); visibility: hidden; }
-}
-
-/* Page content: hidden until opening finishes */
-body.has-opening .site-header,
-body.has-opening main,
-body.has-opening .site-footer {
-  opacity: 0;
-}
-
-body.opening-done .site-header,
-body.opening-done main,
-body.opening-done .site-footer {
-  animation: contentReveal 0.6s ease forwards;
-}
-
-@keyframes contentReveal {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }
 
 img {
@@ -130,9 +55,9 @@ button {
   --bg-dark: #3D3535;
   --accent: #D4A0A0;
   --accent-hover: #C08585;
-  --text: #4A3F3F;
+  --text: #2A2320;
   --text-white: #FFFFFF;
-  --text-sub: #8C7E7E;
+  --text-sub: #6B5E58;
   --border: #EDE6E0;
   --bg-alt: #FFF5F0;
 
@@ -143,6 +68,7 @@ button {
 
   --font-en: 'Montserrat', sans-serif;
   --font-jp: 'Noto Sans JP', sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
 
   --header-h: 60px;
   --radius: 12px;
@@ -153,6 +79,148 @@ button {
   :root {
     --grid: 20px;
   }
+}
+
+/* Page content: hidden until opening finishes */
+body.has-opening .site-header,
+body.has-opening main,
+body.has-opening .site-footer {
+  opacity: 0;
+}
+
+body.opening-done .site-header,
+body.opening-done main,
+body.opening-done .site-footer {
+  animation: contentReveal 0.6s ease forwards;
+}
+
+@keyframes contentReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------- OPENING V2 ---------- */
+.opening-v2 {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.opening-v2.is-leaving {
+  opacity: 0;
+}
+
+.opening-v2__text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4vw;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: #fff;
+}
+
+.opening-v2__text span {
+  opacity: 0;
+  display: inline-block;
+}
+
+.opening-v2__space {
+  width: 0.5em;
+}
+
+@keyframes charIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- HERO SLIDE ---------- */
+.hero-slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-slide__images {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.hero-slide__img.is-active {
+  opacity: 1;
+  animation: kenBurns 6s ease forwards;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1); }
+}
+
+.hero-slide__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-slide__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-slide__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-slide__en {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5vw;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+}
+
+.hero-slide__jp {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+
+.hero-slide__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin-top: 3rem;
+  opacity: 0.6;
 }
 
 /* ---------- Utility ---------- */
@@ -387,9 +455,9 @@ button {
 }
 
 .hero__title {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 5.5vw;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -504,9 +572,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 1.2rem;
-  font-family: var(--font-en);
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--text);
   transition: color var(--transition);
@@ -534,9 +602,9 @@ button {
   padding: 1.4rem 3.2rem;
   background: var(--accent);
   color: var(--text-white);
-  font-family: var(--font-en);
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.08em;
   border-radius: 60px;
   transition: background var(--transition);
@@ -584,9 +652,9 @@ button {
 }
 
 .vision-text h3 {
-  font-family: var(--font-jp);
+  font-family: var(--font-serif);
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1.5;
   margin-bottom: 2.4rem;
 }
@@ -681,9 +749,9 @@ button {
 }
 
 .card__title {
-  font-family: var(--font-jp);
+  font-family: var(--font-serif);
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
@@ -718,9 +786,9 @@ button {
 }
 
 .values-item__title {
-  font-family: var(--font-jp);
+  font-family: var(--font-serif);
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1.4;
   margin-bottom: 1.6rem;
 }
@@ -764,7 +832,7 @@ button {
 
 .news-title {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -785,9 +853,9 @@ button {
 }
 
 .careers-banner__text h3 {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 3.5vw;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1.2;
   margin-bottom: 1.6rem;
 }
@@ -816,9 +884,9 @@ button {
 }
 
 .ceo-text h3 {
-  font-family: var(--font-jp);
+  font-family: var(--font-serif);
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 300;
   margin-bottom: 2.4rem;
   line-height: 1.4;
 }
@@ -1025,9 +1093,9 @@ button {
 }
 
 .feature-card__title {
-  font-family: var(--font-jp);
+  font-family: var(--font-serif);
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 1.6rem;
   line-height: 1.5;
 }
@@ -1112,9 +1180,9 @@ button {
 }
 
 .cta-section h2 {
-  font-family: var(--font-en);
+  font-family: var(--font-serif);
   font-size: 3.5vw;
-  font-weight: 700;
+  font-weight: 300;
   margin-bottom: 1.6rem;
 }
 
@@ -1270,6 +1338,14 @@ button {
     width: 70px;
     height: 70px;
   }
+
+  .hero-slide__en {
+    font-size: 10vw;
+  }
+
+  .hero-slide__jp {
+    font-size: 1.4rem;
+  }
 }
 
 /* Small SP */
@@ -1296,5 +1372,9 @@ button {
 
   .card__body {
     padding: 2rem;
+  }
+
+  .hero-slide__en {
+    font-size: 12vw;
   }
 }

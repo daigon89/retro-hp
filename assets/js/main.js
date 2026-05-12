@@ -3,21 +3,44 @@
    ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ---- Opening Animation ----
+  // ---- Opening Animation (v2) ----
+  const openingV2 = document.querySelector('.opening-v2');
+  if (openingV2) {
+    document.body.classList.add('has-opening');
+    const chars = openingV2.querySelectorAll('.opening-v2__text span');
+    chars.forEach((char, i) => {
+      char.style.animation = `charIn 0.4s ease ${0.5 + i * 0.05}s forwards`;
+    });
+    setTimeout(() => {
+      document.body.classList.remove('has-opening');
+      document.body.classList.add('opening-done');
+      openingV2.classList.add('is-leaving');
+    }, 2500);
+    setTimeout(() => openingV2.remove(), 3300);
+  }
+
+  // ---- Legacy Opening Animation ----
   const opening = document.querySelector('.opening');
   if (opening) {
     document.body.classList.add('has-opening');
-
-    // After opening animations finish, reveal content
     setTimeout(() => {
       document.body.classList.remove('has-opening');
       document.body.classList.add('opening-done');
     }, 2600);
-
-    // Remove overlay DOM after exit animation
     setTimeout(() => {
       opening.remove();
     }, 3600);
+  }
+
+  // ---- Hero Slideshow ----
+  const slides = document.querySelectorAll('.hero-slide__img');
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 5000);
   }
 
   // ---- Header scroll behavior ----
@@ -136,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollDownBtn = document.querySelector('.scroll-down');
   if (scrollDownBtn) {
     scrollDownBtn.addEventListener('click', () => {
-      const hero = document.querySelector('.hero');
+      const hero = document.querySelector('.hero') || document.querySelector('.hero-slide');
       if (hero) {
         const nextSection = hero.nextElementSibling;
         if (nextSection) {

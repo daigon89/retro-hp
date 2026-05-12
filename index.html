@@ -7,15 +7,20 @@
   <meta name="description" content="株式会社Retro - 日本人の教育をアップデートする。生まれた環境で、未来が変わってはいけない。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=1778553848">
 </head>
 <body>
 
-  <!-- OPENING -->
-  <div class="opening" aria-hidden="true">
-    <img src="assets/img/logo.png" alt="" class="opening__logo">
-    <span class="opening__tagline">UPDATE of EDUCATION</span>
+  <!-- OPENING V2 -->
+  <div class="opening-v2" aria-hidden="true">
+    <p class="opening-v2__text">
+      <span>U</span><span>P</span><span>D</span><span>A</span><span>T</span><span>E</span>
+      <span class="opening-v2__space"></span>
+      <span>o</span><span>f</span>
+      <span class="opening-v2__space"></span>
+      <span>E</span><span>D</span><span>U</span><span>C</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+    </p>
   </div>
 
   <!-- ===== HEADER ===== -->
@@ -47,17 +52,20 @@
 
   <main>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" aria-label="ヒーロー">
-      <div class="hero__bg">
-        <img src="assets/img/hero.jpg" alt="親子の温かい時間" class="hero__bg-img">
+    <!-- ===== HERO SLIDE ===== -->
+    <section class="hero-slide" aria-label="ヒーロー">
+      <div class="hero-slide__images">
+        <div class="hero-slide__img is-active" style="background-image: url('assets/img/slide1.jpg');"></div>
+        <div class="hero-slide__img" style="background-image: url('assets/img/slide2.jpg');"></div>
+        <div class="hero-slide__img" style="background-image: url('assets/img/slide3.jpg');"></div>
       </div>
-      <div class="hero__content">
-        <h1>
-          <span class="hero__title">UPDATE of</span><br>
-          <span class="hero__title hero__title--line2">EDUCATION</span>
+      <div class="hero-slide__overlay"></div>
+      <div class="hero-slide__content">
+        <h1 class="hero-slide__title">
+          <span class="hero-slide__en">UPDATE of EDUCATION</span>
+          <span class="hero-slide__jp">日本人の教育を、アップデートする</span>
         </h1>
-        <p class="hero__subtitle">株式会社Retro</p>
+        <p class="hero-slide__sub">株式会社Retro</p>
       </div>
       <button class="scroll-down" aria-label="下にスクロール">
         <svg class="scroll-down__circle" viewBox="0 0 100 100" width="100" height="100">
