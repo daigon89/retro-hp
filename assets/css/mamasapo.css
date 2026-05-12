@@ -147,6 +147,8 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 .ms-hero-screen--first .ms-hero-screen__content {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 35%, transparent 65%);
   padding: calc(var(--grid) * 10) calc(var(--grid) * 8);
+  margin-right: calc(var(--grid) * -4);
+  margin-bottom: calc(var(--grid) * -4);
 }
 
 .ms-hero-fixed__label {
@@ -917,6 +919,10 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
   .ms-hero-screen--first .ms-hero-screen__content {
     padding: calc(var(--grid) * 8) calc(var(--grid) * 4);
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: calc(var(--grid) * -3);
+    margin-top: calc(var(--grid) * -3);
   }
 
   .ms-hero-screen__content--right {
