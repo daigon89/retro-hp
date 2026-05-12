@@ -11,6 +11,9 @@
   --ms-bg: #FAF8F6;
 }
 
+/* スマホ専用改行 */
+.sp-only { display: none; }
+
 /* ママサポページの基本テキスト */
 body:has(.ms-hero-simple) {
   font-family: var(--ms-sans);
@@ -943,6 +946,8 @@ body:has(.ms-hero-simple) .site-header .hamburger span {
 }
 
 @media (max-width: 680px) {
+  .sp-only { display: inline; }
+
   .ms-hero-simple__title {
     font-size: 2.2rem;
   }
