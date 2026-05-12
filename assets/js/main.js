@@ -168,4 +168,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ---- Mamasapo nav active state ----
+  const msNav = document.querySelector('.ms-nav');
+  if (msNav) {
+    const navLinks = msNav.querySelectorAll('a');
+    const sections = [];
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').substring(1);
+      const section = document.getElementById(id);
+      if (section) sections.push({ link, section });
+    });
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('is-active'));
+          const active = sections.find(s => s.section === entry.target);
+          if (active) active.link.classList.add('is-active');
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+    sections.forEach(s => navObserver.observe(s.section));
+  }
 });

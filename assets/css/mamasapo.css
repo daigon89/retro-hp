@@ -1,8 +1,8 @@
 /* ================================================
-   ママサポ — 専用スタイルシート
+   ママサポ — 専用スタイルシート（1ページLP版）
    ================================================ */
 
-/* ---------- フォント・カラー上書き（参考サイト準拠）---------- */
+/* ---------- フォント・カラー変数 ---------- */
 :root {
   --ms-serif: 'Noto Serif JP', serif;
   --ms-sans: 'Noto Sans JP', sans-serif;
@@ -12,8 +12,7 @@
 }
 
 /* ママサポページの基本テキスト */
-body:has(.ms-hero),
-body:has(.ms-page-hero) {
+body:has(.ms-hero-wrapper) {
   font-family: var(--ms-sans);
   font-weight: 300;
   font-size: 1.3rem;
@@ -22,26 +21,16 @@ body:has(.ms-page-hero) {
 }
 
 /* ---------- ママサポ ヘッダー上書き ---------- */
-/* ママサポページではヘッダーに常に背景+ダークテキスト */
-body:has(.ms-hero-fixed) .site-header,
-body:has(.ms-hero-wrapper) .site-header,
-body:has(.ms-page-hero) .site-header {
+body:has(.ms-hero-wrapper) .site-header {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-body:has(.ms-hero-fixed) .site-header .header-nav a,
-body:has(.ms-page-hero) .site-header .header-nav a {
-  color: var(--ms-text);
-}
-
-body:has(.ms-hero-fixed) .site-header .header-logo__img,
-body:has(.ms-page-hero) .site-header .header-logo__img {
+body:has(.ms-hero-wrapper) .site-header .header-logo__img {
   filter: none;
 }
 
-body:has(.ms-hero-fixed) .site-header .hamburger span,
-body:has(.ms-page-hero) .site-header .hamburger span {
+body:has(.ms-hero-wrapper) .site-header .hamburger span {
   background: var(--ms-text);
 }
 
@@ -181,48 +170,244 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   letter-spacing: 0.04em;
 }
 
-/* ---------- 実績バー ---------- */
-.ms-stats {
-  background: var(--bg-dark);
-  padding: calc(var(--grid) * 2) 0;
+/* ---------- 2. ナビバー（スティッキー） ---------- */
+.ms-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.ms-stats__inner {
+.ms-nav__inner {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: calc(var(--grid) * 3);
-  padding: 0 var(--grid);
+  gap: 0;
+  padding: 0;
 }
 
-.ms-stats__item {
-  text-align: center;
-  flex: 1;
-}
-
-.ms-stats__num {
+.ms-nav__inner a {
   display: block;
-  font-family: var(--font-en);
-  font-size: 2.4rem;
-  font-weight: 300;
-  color: #fff;
+  padding: 1.6rem 2.4rem;
+  font-family: var(--ms-sans);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ms-text-sub);
+  text-decoration: none;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent;
 }
 
-.ms-stats__text {
-  display: block;
+.ms-nav__inner a:hover,
+.ms-nav__inner a.is-active {
+  color: var(--ms-text);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- 3. 導入テキスト ---------- */
+.ms-intro {
+  padding: calc(var(--grid) * 6) var(--grid);
+  background: #fff;
+}
+
+.ms-intro__inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ms-intro__inner p {
+  font-family: var(--ms-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 2.5;
+  color: var(--ms-text);
+  margin-bottom: 2.4rem;
+  letter-spacing: 0.02em;
+}
+
+.ms-intro__inner p:last-child {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+/* ---------- 4. 実現できること ---------- */
+.ms-achieve {
+  padding: calc(var(--grid) * 6) 0;
+}
+
+.ms-achieve__grid {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--grid) * 2);
+  flex-wrap: wrap;
+}
+
+.ms-achieve__card {
+  text-align: center;
+  flex: 0 1 180px;
+}
+
+.ms-achieve__num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-en);
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.6rem;
+}
+
+.ms-achieve__text {
+  font-family: var(--ms-sans);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--ms-text);
+  line-height: 1.6;
+}
+
+/* ---------- 5. こんな方におすすめ ---------- */
+.ms-recommend {
+  padding: calc(var(--grid) * 6) 0;
+  background: #fff;
+}
+
+.ms-recommend__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--grid) * 2);
+}
+
+.ms-recommend__card {
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-recommend__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.ms-recommend__card-title {
+  font-family: var(--ms-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ms-text);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.ms-recommend__card-text {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 2;
+}
+
+/* ---------- 6. 想い（VISION / MISSION / VALUE） ---------- */
+.ms-mission {
+  padding: calc(var(--grid) * 6) 0;
+}
+
+.ms-vmv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--grid) * 2);
+  margin-bottom: calc(var(--grid) * 4);
+}
+
+.ms-vmv__card {
+  text-align: center;
+  background: #fff;
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 2.5) calc(var(--grid) * 1.5);
+}
+
+.ms-vmv__label {
+  font-family: var(--font-en);
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 0.4rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
 }
 
-.ms-stats__divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.15);
-  flex-shrink: 0;
+.ms-vmv__text {
+  font-family: var(--ms-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ms-text);
+}
+
+.ms-section__subtitle {
+  font-family: var(--ms-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--ms-text);
+  margin-bottom: calc(var(--grid) * 2);
+  line-height: 1.5;
+}
+
+/* ---------- 代表メッセージ（長文） ---------- */
+.ms-about-ceo {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: calc(var(--grid) * 3);
+  align-items: start;
+}
+
+.ms-about-ceo__text p {
+  font-size: 1.5rem;
+  color: var(--text-sub);
+  line-height: 2.2;
+  margin-bottom: 1.6rem;
+}
+
+.ms-about-ceo__photo img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ms-about-ceo__caption {
+  font-size: 1.2rem;
+  color: var(--text-sub);
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.ceo-name {
+  font-family: var(--ms-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ms-text);
+  margin-top: 2.4rem;
+}
+
+.ceo-name span {
+  display: block;
+  font-family: var(--ms-sans);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  margin-top: 0.4rem;
 }
 
 /* ---------- セクション共通 ---------- */
@@ -254,50 +439,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   letter-spacing: 0.02em;
 }
 
-/* ---------- ページヒーロー（下層ページ共通） ---------- */
-.ms-page-hero {
-  height: 40vh;
-  min-height: 280px;
-  background: var(--bg-alt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: var(--header-h);
-}
-
-.ms-page-hero__inner {
-  text-align: center;
-  padding: 0 var(--grid);
-}
-
-.ms-page-hero__label {
-  font-family: var(--font-en);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  color: var(--ms-text-sub);
-  text-transform: uppercase;
-  margin-bottom: 1.6rem;
-}
-
-.ms-page-hero__title {
-  font-family: var(--ms-serif);
-  font-size: 3.6rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--ms-text);
-  margin-bottom: 1.6rem;
-  letter-spacing: 0.02em;
-}
-
-.ms-page-hero__sub {
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: var(--ms-text-sub);
-  line-height: 2;
-}
-
-/* ---------- 選ばれる理由カード ---------- */
+/* ---------- 7. 選ばれる理由カード ---------- */
 .ms-reasons {
   display: flex;
   flex-direction: column;
@@ -380,309 +522,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   order: 2;
 }
 
-/* ---------- 代表メッセージ: フル背景 ---------- */
-.ms-message {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-
-.ms-message__bg {
-  position: absolute;
-  inset: 0;
-}
-
-.ms-message__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 70%;
-}
-
-.ms-message__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(59, 45, 45, 0.85) 0%, rgba(59, 45, 45, 0.5) 50%, transparent 100%);
-}
-
-.ms-message__content {
-  position: relative;
-  z-index: 1;
-  max-width: 860px;
-  padding: calc(var(--grid) * 4) calc(var(--grid) * 5);
-  color: #fff;
-}
-
-.ms-message__label {
-  font-family: var(--font-en);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 2.4rem;
-}
-
-.ms-message__quote {
-  font-family: var(--ms-serif);
-  font-size: 2.4rem;
-  font-weight: 300;
-  line-height: 1.8;
-  margin-bottom: 2.4rem;
-  border-left: 2px solid var(--accent);
-  padding-left: 2rem;
-  letter-spacing: 0.04em;
-}
-
-.ms-message__sub {
-  font-size: 1.3rem;
-  font-weight: 300;
-  line-height: 2.2;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 3.2rem;
-}
-
-.ms-message__name {
-  display: block;
-  font-family: var(--ms-serif);
-  font-size: 1.6rem;
-  font-weight: 400;
-}
-
-.ms-message__role {
-  display: block;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.4rem;
-  font-weight: 300;
-}
-
-/* ---------- フロー: 横タイムライン ---------- */
-.ms-flow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0;
-}
-
-.ms-flow__step {
-  flex: 1;
-  text-align: center;
-  max-width: 220px;
-}
-
-.ms-flow__circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: none;
-  border: 1px solid var(--ms-text);
-  color: var(--ms-text);
-  font-family: var(--font-en);
-  font-size: 1.6rem;
-  font-weight: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.6rem;
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
-
-.ms-flow__step:hover .ms-flow__circle {
-  background: var(--ms-text);
-  color: #fff;
-}
-
-.ms-flow__step:hover .ms-flow__circle {
-  transform: scale(1.1);
-}
-
-.ms-flow__name {
-  font-family: var(--ms-serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 0.8rem;
-  color: var(--ms-text);
-}
-
-.ms-flow__desc {
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--ms-text-sub);
-  line-height: 1.9;
-}
-
-.ms-flow__line {
-  width: 60px;
-  height: 2px;
-  background: var(--border);
-  margin-top: 28px;
-  flex-shrink: 0;
-}
-
-/* ---------- CTA ---------- */
-.ms-cta {
-  padding: calc(var(--grid) * 4) 0;
-  background: var(--bg-alt);
-}
-
-.ms-cta__inner {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-  border-radius: calc(var(--radius) * 2);
-  padding: calc(var(--grid) * 4);
-  text-align: center;
-  color: #fff;
-}
-
-.ms-cta__title {
-  font-family: var(--ms-serif);
-  font-size: 2.6rem;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 1.6rem;
-  letter-spacing: 0.02em;
-}
-
-.ms-cta__desc {
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 3.2rem;
-}
-
-.ms-cta__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.2rem;
-  padding: 1.4rem 3.6rem;
-  background: #fff;
-  color: var(--ms-text);
-  font-family: var(--ms-sans);
-  font-size: 1.4rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  border-radius: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ms-cta__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* ---------- ms-about: ミッション ---------- */
-.ms-about-mission {
-  max-width: 800px;
-}
-
-.ms-about-mission p {
-  font-size: 1.6rem;
-  color: var(--text-sub);
-  line-height: 2.2;
-  margin-bottom: 1.6rem;
-}
-
-.ms-about-mission p:first-child,
-.ms-about-mission p:nth-child(2) {
-  font-family: var(--ms-serif);
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: var(--ms-text);
-}
-
-/* ---------- ms-about: 代表メッセージ（長文） ---------- */
-.ms-about-ceo {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: calc(var(--grid) * 3);
-  align-items: start;
-}
-
-.ms-about-ceo__text p {
-  font-size: 1.5rem;
-  color: var(--text-sub);
-  line-height: 2.2;
-  margin-bottom: 1.6rem;
-}
-
-.ms-about-ceo__photo img {
-  width: 100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-  object-position: center top;
-}
-
-.ms-about-ceo__caption {
-  font-size: 1.2rem;
-  color: var(--text-sub);
-  margin-top: 1.2rem;
-  text-align: center;
-}
-
-/* ---------- ms-about: メディア ---------- */
-.ms-media-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: calc(var(--grid) * 2);
-}
-
-.ms-media-card {
-  background: #fff;
-  border-radius: calc(var(--radius) * 2);
-  padding: calc(var(--grid) * 2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ms-media-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-}
-
-.ms-media-card__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-en);
-  font-size: 1.4rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.6rem;
-}
-
-.ms-media-card__title {
-  font-family: var(--ms-serif);
-  font-size: 1.7rem;
-  font-weight: 400;
-  margin-bottom: 1.2rem;
-  color: var(--ms-text);
-}
-
-.ms-media-card__text {
-  font-size: 1.4rem;
-  color: var(--text-sub);
-  line-height: 2;
-  margin-bottom: 1.2rem;
-}
-
-.ms-media-card__link {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--accent);
-  transition: color 0.3s ease;
-}
-
-.ms-media-card__link:hover {
-  color: var(--accent-hover);
-}
-
-/* ---------- ms-courses: コースカード ---------- */
+/* ---------- 8. コースカード ---------- */
 .ms-courses-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -695,6 +535,15 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   padding: calc(var(--grid) * 2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+}
+
+/* 5個目を下段中央に配置 */
+.ms-courses-grid .ms-course-card:nth-child(4) {
+  grid-column: 1 / 2;
+}
+
+.ms-courses-grid .ms-course-card:nth-child(5) {
+  grid-column: 2 / 3;
 }
 
 .ms-course-card:hover {
@@ -757,47 +606,67 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   border-radius: 20px;
 }
 
-/* ---------- ms-courses: SNSステップ ---------- */
-.ms-sns-steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: calc(var(--grid) * 1);
-  counter-reset: sns-step;
+/* ---------- 10. フロー: 横タイムライン ---------- */
+.ms-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
 }
 
-.ms-sns-step {
+.ms-flow__step {
+  flex: 1;
   text-align: center;
-  background: #fff;
-  border-radius: var(--radius);
-  padding: calc(var(--grid) * 1.5) var(--grid);
-  position: relative;
+  max-width: 220px;
 }
 
-.ms-sns-step__num {
+.ms-flow__circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid var(--ms-text);
+  color: var(--ms-text);
   font-family: var(--font-en);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.05em;
+  font-size: 1.6rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.6rem;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
-.ms-sns-step__title {
+.ms-flow__step:hover .ms-flow__circle {
+  background: var(--ms-text);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.ms-flow__name {
   font-family: var(--ms-serif);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0.8rem;
-  line-height: 1.5;
   color: var(--ms-text);
 }
 
-.ms-sns-step__text {
-  font-size: 1.3rem;
-  color: var(--text-sub);
-  line-height: 1.8;
+.ms-flow__desc {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--ms-text-sub);
+  line-height: 1.9;
 }
 
-/* ---------- ms-voice: 体験談カード ---------- */
+.ms-flow__line {
+  width: 60px;
+  height: 2px;
+  background: var(--border);
+  margin-top: 28px;
+  flex-shrink: 0;
+}
+
+/* ---------- 11. 受講生の声 ---------- */
 .ms-voice-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -911,8 +780,59 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   line-height: 2;
 }
 
+/* ---------- 13. CTA ---------- */
+.ms-cta {
+  padding: calc(var(--grid) * 4) 0;
+  background: #fff;
+}
+
+.ms-cta__inner {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: calc(var(--radius) * 2);
+  padding: calc(var(--grid) * 4);
+  text-align: center;
+  color: #fff;
+}
+
+.ms-cta__title {
+  font-family: var(--ms-serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.ms-cta__desc {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3.2rem;
+}
+
+.ms-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 3.6rem;
+  background: #fff;
+  color: var(--ms-text);
+  font-family: var(--ms-sans);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ms-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
 /* ---------- レスポンシブ ---------- */
 @media (max-width: 1023px) {
+  /* Hero */
   .ms-hero-bg {
     background-position: center center;
     background-size: auto 85vh;
@@ -935,8 +855,12 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   }
 
   .ms-hero-screen__content--left {
-    padding: var(--grid);
-    justify-content: center;
+    padding: calc(var(--grid) * 6) var(--grid) var(--grid);
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .ms-hero-fixed__title {
@@ -946,32 +870,64 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   .ms-hero-fixed__desc {
     font-size: 1.3rem;
     text-align: left;
-  }
-
-  .ms-hero-screen__content--left {
-    padding: calc(var(--grid) * 6) var(--grid) var(--grid);
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .ms-hero-fixed__desc {
     word-break: break-all;
     overflow-wrap: break-word;
   }
 
-  .ms-stats__inner {
-    flex-direction: column;
-    gap: 2rem;
+  /* Nav */
+  .ms-nav__inner {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .ms-stats__divider {
-    width: 60px;
-    height: 1px;
+  .ms-nav__inner::-webkit-scrollbar {
+    display: none;
   }
 
+  .ms-nav__inner a {
+    padding: 1.4rem 1.6rem;
+    font-size: 1.2rem;
+  }
+
+  /* Section titles */
+  .ms-section__title {
+    font-size: 2.6rem;
+  }
+
+  /* Achieve */
+  .ms-achieve__grid {
+    gap: calc(var(--grid) * 1.5);
+  }
+
+  .ms-achieve__card {
+    flex: 0 1 140px;
+  }
+
+  /* Recommend */
+  .ms-recommend__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* VMV */
+  .ms-vmv {
+    grid-template-columns: 1fr;
+    gap: calc(var(--grid) * 1.5);
+  }
+
+  /* CEO */
+  .ms-about-ceo {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-about-ceo__photo {
+    order: -1;
+    max-width: 400px;
+  }
+
+  /* Reasons */
   .ms-reason {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -989,26 +945,20 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   .ms-reason--reverse .ms-reason__body { order: 0; }
   .ms-reason--reverse .ms-reason__img { order: 0; }
 
-  .ms-section__title {
-    font-size: 2.6rem;
+  /* Courses */
+  .ms-courses-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .ms-page-hero__title {
-    font-size: 3rem;
+  .ms-courses-grid .ms-course-card:nth-child(4) {
+    grid-column: auto;
   }
 
-  .ms-message__content {
-    padding: calc(var(--grid) * 3) var(--grid);
+  .ms-courses-grid .ms-course-card:nth-child(5) {
+    grid-column: auto;
   }
 
-  .ms-message__quote {
-    font-size: 2rem;
-  }
-
-  .ms-message__overlay {
-    background: linear-gradient(90deg, rgba(59, 45, 45, 0.88) 0%, rgba(59, 45, 45, 0.7) 100%);
-  }
-
+  /* Flow */
   .ms-flow {
     flex-direction: column;
     align-items: center;
@@ -1025,40 +975,18 @@ body:has(.ms-page-hero) .site-header .hamburger span {
     margin: 0;
   }
 
+  /* Voice */
+  .ms-voice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA */
   .ms-cta__title {
     font-size: 2.2rem;
   }
 
   .ms-cta__inner {
     padding: calc(var(--grid) * 3) var(--grid);
-  }
-
-  /* About page */
-  .ms-about-ceo {
-    grid-template-columns: 1fr;
-  }
-
-  .ms-about-ceo__photo {
-    order: -1;
-    max-width: 400px;
-  }
-
-  .ms-media-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Courses page */
-  .ms-courses-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .ms-sns-steps {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Voice page */
-  .ms-voice-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -1071,28 +999,28 @@ body:has(.ms-page-hero) .site-header .hamburger span {
     text-align: center;
   }
 
+  /* Intro */
+  .ms-intro__inner p {
+    font-size: 1.3rem;
+    line-height: 2.2;
+  }
+
+  /* Achieve */
+  .ms-achieve__grid {
+    justify-content: center;
+  }
+
+  .ms-achieve__card {
+    flex: 0 1 130px;
+  }
+
+  /* Reasons */
   .ms-reason {
     padding: calc(var(--grid) * 1.5);
   }
 
-  .ms-message__quote {
-    font-size: 1.8rem;
-  }
-
-  .ms-page-hero__title {
-    font-size: 2.4rem;
-  }
-
-  .ms-page-hero__sub {
-    font-size: 1.4rem;
-  }
-
-  /* Courses page */
+  /* Courses */
   .ms-courses-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ms-sns-steps {
     grid-template-columns: 1fr;
   }
 

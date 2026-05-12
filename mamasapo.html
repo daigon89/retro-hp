@@ -17,28 +17,24 @@
   <header class="site-header is-scrolled" role="banner">
     <a href="index.html" target="_blank" rel="noopener noreferrer" class="header-logo" aria-label="株式会社Retro ホーム"><img src="assets/img/logo.png" alt="Re:tro" class="header-logo__img"></a>
     <nav class="header-nav" role="navigation" aria-label="メインナビゲーション">
-      <a href="ms-about.html">サービスについて</a>
-      <a href="ms-courses.html">コース</a>
-      <a href="ms-voice.html">受講生の声</a>
-      <a href="ms-faq.html">よくある質問</a>
-      <a href="https://sub.re-tro.net/line/open/mLScxEIH6lz4" target="_blank" rel="noopener noreferrer">LINEで無料相談</a>
     </nav>
     <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
   <div class="sp-menu" role="dialog" aria-label="モバイルメニュー">
-    <a href="mamasapo.html">ママサポ Home</a>
-    <a href="ms-about.html">サービスについて</a>
-    <a href="ms-courses.html">コース</a>
-    <a href="ms-voice.html">受講生の声</a>
-    <a href="ms-faq.html">よくある質問</a>
+    <a href="#mission">想い</a>
+    <a href="#reasons">選ばれる理由</a>
+    <a href="#courses">コース</a>
+    <a href="#flow">始め方</a>
+    <a href="#voices">受講生の声</a>
+    <a href="#faq">よくある質問</a>
     <a href="https://sub.re-tro.net/line/open/mLScxEIH6lz4" target="_blank" rel="noopener noreferrer">LINEで無料相談</a>
   </div>
 
   <main>
 
-    <!-- ===== HERO: 固定背景 2段構成 ===== -->
+    <!-- ===== 1. HERO: 固定背景 2段構成 ===== -->
     <div class="ms-hero-wrapper">
       <div class="ms-hero-bg" style="background-image: url('assets/img/mamasapo/photo5.jpg');"></div>
       <!-- 1画面目: キャッチコピー 右下 -->
@@ -62,30 +58,123 @@
       </section>
     </div>
 
-    <!-- ===== 実績バー ===== -->
-    <section class="ms-stats" aria-label="実績">
-      <div class="ms-stats__inner">
-        <div class="ms-stats__item js-visible">
-          <span class="ms-stats__num">1,000+</span>
-          <span class="ms-stats__text">累計相談実績</span>
-        </div>
-        <div class="ms-stats__divider"></div>
-        <div class="ms-stats__item js-visible" data-delay="100">
-          <span class="ms-stats__num">TOKYO MX</span>
-          <span class="ms-stats__text">テレビ出演</span>
-        </div>
-        <div class="ms-stats__divider"></div>
-        <div class="ms-stats__item js-visible" data-delay="200">
-          <span class="ms-stats__num">PR TIMES</span>
-          <span class="ms-stats__text">メディア掲載</span>
+    <!-- ===== 2. ナビバー（スティッキー） ===== -->
+    <nav class="ms-nav" id="ms-nav">
+      <div class="ms-nav__inner">
+        <a href="#mission">想い</a>
+        <a href="#reasons">選ばれる理由</a>
+        <a href="#courses">コース</a>
+        <a href="#flow">始め方</a>
+        <a href="#voices">受講生の声</a>
+        <a href="#faq">よくある質問</a>
+      </div>
+    </nav>
+
+    <!-- ===== 3. 導入テキスト ===== -->
+    <section class="ms-intro" aria-label="導入">
+      <div class="ms-intro__inner js-visible">
+        <p>「働きたい気持ちはある。でも、子どもとの時間も大切にしたい。」<br>そんな想いを抱えるママは少なくありません。</p>
+        <p>スキルを身につけたくても、何から始めればいいかわからない。<br>スクールに通う時間もない。<br>そもそも、自分に合った働き方がわからない。</p>
+        <p>ママサポは、そんなママのために生まれた<br>在宅ワーク個別サポートサービスです。</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. ママサポで実現できること ===== -->
+    <section class="ms-achieve ms-section--alt" aria-label="実現できること">
+      <div class="container">
+        <p class="ms-section__label js-visible">What You Can Achieve</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">ママサポで<br>実現できること</h2>
+        <div class="ms-achieve__grid">
+          <div class="ms-achieve__card js-visible" data-delay="0">
+            <div class="ms-achieve__num">1</div>
+            <p class="ms-achieve__text">在宅で収入アップできる</p>
+          </div>
+          <div class="ms-achieve__card js-visible" data-delay="100">
+            <div class="ms-achieve__num">2</div>
+            <p class="ms-achieve__text">スマホだけでも始められる</p>
+          </div>
+          <div class="ms-achieve__card js-visible" data-delay="200">
+            <div class="ms-achieve__num">3</div>
+            <p class="ms-achieve__text">子育てと両立できる</p>
+          </div>
+          <div class="ms-achieve__card js-visible" data-delay="300">
+            <div class="ms-achieve__num">4</div>
+            <p class="ms-achieve__text">自分のペースで学べる</p>
+          </div>
+          <div class="ms-achieve__card js-visible" data-delay="400">
+            <div class="ms-achieve__num">5</div>
+            <p class="ms-achieve__text">一生使えるスキルが身につく</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== 選ばれる理由 ===== -->
-    <section class="ms-section" aria-label="選ばれる理由">
+    <!-- ===== 5. こんな方におすすめ ===== -->
+    <section class="ms-recommend" aria-label="こんな方におすすめ">
       <div class="container">
-        <p class="ms-section__label js-visible">About</p>
+        <p class="ms-section__label js-visible">Recommended For</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">こんな方におすすめ</h2>
+        <div class="ms-recommend__grid">
+          <div class="ms-recommend__card js-visible" data-delay="0">
+            <h3 class="ms-recommend__card-title">育休中のママ</h3>
+            <p class="ms-recommend__card-text">育休期間を活かして、復帰後も続けられるスキルを身につけたい方</p>
+          </div>
+          <div class="ms-recommend__card js-visible" data-delay="100">
+            <h3 class="ms-recommend__card-title">副業を始めたいママ</h3>
+            <p class="ms-recommend__card-text">パートや本業の合間に、在宅で収入をプラスしたい方</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. 想い（VISION / MISSION / VALUE + 代表メッセージ） ===== -->
+    <section class="ms-mission ms-section--alt" id="mission" aria-label="想い">
+      <div class="container">
+        <p class="ms-section__label js-visible">Our Philosophy</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">想い</h2>
+
+        <div class="ms-vmv js-visible" data-delay="200">
+          <div class="ms-vmv__card">
+            <p class="ms-vmv__label">VISION</p>
+            <p class="ms-vmv__text">すべてのママに、<br>自分らしい選択肢を</p>
+          </div>
+          <div class="ms-vmv__card">
+            <p class="ms-vmv__label">MISSION</p>
+            <p class="ms-vmv__text">大人の年収を底上げし、<br>子供の教育機会を増やす</p>
+          </div>
+          <div class="ms-vmv__card">
+            <p class="ms-vmv__label">VALUE</p>
+            <p class="ms-vmv__text">一人ひとりに寄り添う</p>
+          </div>
+        </div>
+
+        <div class="ms-about-ceo js-visible" data-delay="300">
+          <div class="ms-about-ceo__text">
+            <h3 class="ms-section__subtitle">代表メッセージ</h3>
+            <p>私は幼少期、恵まれた教育環境の中で育ちました。習い事、塾、進学先の選択肢。当時は当たり前だと思っていたことが、実はすべての家庭に与えられているわけではないと知ったのは、大学に進学してからのことです。</p>
+            <p>大学で出会った友人たちの中には、学びたくても学べなかった人、進みたい道を諦めなければならなかった人がいました。その違いを生んでいるのは、本人の努力や才能ではなく、家庭の経済状況であることが多いと気づきました。</p>
+            <p>「親世代の収入を底上げすれば、子供の選択肢は広がるはずだ。」</p>
+            <p>この信念が、ママサポの原点です。</p>
+            <p>教育とは、知識を詰め込むことではありません。「人生を選べる力」を育てることだと、私たちは考えています。そのためにはまず、お母さん自身が新しいスキルを身につけ、自信を取り戻し、経済的な余裕を生み出すことが大切です。</p>
+            <p>ママサポを立ち上げたのは、子育て中のお母さんが在宅で無理なく働ける環境をつくりたいという思いからです。パソコンが苦手でも、ブランクがあっても大丈夫。一人ひとりに合ったペースで、一歩ずつ前に進めるようサポートしています。</p>
+            <p>実際に受講された方からは「子どものために使えるお金が増えた」「自分にもまだできることがあると気づけた」という声をいただいています。この言葉が、私たちの活動の原動力です。</p>
+            <div class="ceo-name">
+              三島 誠司
+              <span>株式会社Retro 代表取締役</span>
+            </div>
+          </div>
+          <div class="ms-about-ceo__photo">
+            <img src="assets/img/mamasapo/ceo-tokyomx.webp" alt="代表 三島誠司 TOKYO MX出演">
+            <p class="ms-about-ceo__caption">TOKYO MX『元気が出るPower講座』出演</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. 選ばれる理由 ===== -->
+    <section class="ms-section" id="reasons" aria-label="選ばれる理由">
+      <div class="container">
+        <p class="ms-section__label js-visible">Why Choose Us</p>
         <h2 class="ms-section__title js-visible" data-delay="100">ママサポが<br>選ばれる理由</h2>
 
         <div class="ms-reasons">
@@ -125,29 +214,98 @@
       </div>
     </section>
 
-    <!-- ===== 代表メッセージ: フル幅背景 ===== -->
-    <section class="ms-message" aria-label="代表メッセージ">
-      <div class="ms-message__bg">
-        <img src="assets/img/mamasapo/message-bg.jpg" alt="親子で歩く風景">
-      </div>
-      <div class="ms-message__overlay"></div>
-      <div class="ms-message__content js-visible">
-        <p class="ms-message__label">Message</p>
-        <blockquote class="ms-message__quote">
-          「家族の笑顔」と「自分の笑顔」<br>
-          どちらも守れる。<br>
-          そんな選択肢を、<br>すべてのママに届けたい。
-        </blockquote>
-        <p class="ms-message__sub">育休でできたブランクを不安に思う必要はありません。<br>在宅ワークなら家にいながら少しずつスキルを習得できます。</p>
-        <div class="ms-message__author">
-          <span class="ms-message__name">三島 誠司</span>
-          <span class="ms-message__role">株式会社Retro 代表取締役</span>
+    <!-- ===== 8. コース一覧 ===== -->
+    <section class="ms-section ms-section--alt" id="courses" aria-label="コース一覧">
+      <div class="container">
+        <p class="ms-section__label js-visible">Courses</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">コース一覧</h2>
+
+        <div class="ms-courses-grid">
+          <article class="ms-course-card js-visible" data-delay="0">
+            <div class="ms-course-card__num">01</div>
+            <h3 class="ms-course-card__title">インスタグラム運用</h3>
+            <ul class="ms-course-card__list">
+              <li>現役インフルエンサー講師によるマンツーマン指導</li>
+              <li>SNSアフィリエイトによる収益化</li>
+              <li>ジャンル選定・リサーチ・フォロワー増加を一貫して学ぶ</li>
+            </ul>
+            <span class="ms-course-card__tag">スマホだけでOK</span>
+          </article>
+
+          <article class="ms-course-card js-visible" data-delay="100">
+            <div class="ms-course-card__num">02</div>
+            <h3 class="ms-course-card__title">物販・EC</h3>
+            <ul class="ms-course-card__list">
+              <li>メルカリ・Amazonを活用した在宅物販</li>
+              <li>商品リサーチ・仕入れ・出品・価格設定</li>
+              <li>スマホで始められる</li>
+            </ul>
+            <span class="ms-course-card__tag">スマホだけでOK</span>
+          </article>
+
+          <article class="ms-course-card js-visible" data-delay="200">
+            <div class="ms-course-card__num">03</div>
+            <h3 class="ms-course-card__title">オンライン秘書</h3>
+            <ul class="ms-course-card__list">
+              <li>メール対応・スケジュール管理・資料作成</li>
+              <li>実践形式で案件経験を積める</li>
+              <li>パソコン初心者OK</li>
+            </ul>
+            <span class="ms-course-card__tag">パソコン初心者OK</span>
+          </article>
+
+          <article class="ms-course-card js-visible" data-delay="0">
+            <div class="ms-course-card__num">04</div>
+            <h3 class="ms-course-card__title">WEBデザイン</h3>
+            <ul class="ms-course-card__list">
+              <li>Figma・Canvaを使用したデザイン制作</li>
+              <li>バナー・SNS画像デザイン</li>
+              <li>現役デザイナー講師によるマンツーマン指導</li>
+            </ul>
+            <span class="ms-course-card__tag">デザイン未経験OK</span>
+          </article>
+
+          <article class="ms-course-card js-visible" data-delay="100">
+            <div class="ms-course-card__num">05</div>
+            <h3 class="ms-course-card__title">AIを活用した在宅ワーク</h3>
+            <ul class="ms-course-card__list">
+              <li>AI×SNSで効率的に稼ぐ</li>
+              <li>投稿文作成・画像生成・リサーチ効率化</li>
+              <li>最新のAIツールを活用したスキルを習得</li>
+            </ul>
+            <span class="ms-course-card__tag">最新スキル</span>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== 始め方: 横タイムライン ===== -->
-    <section class="ms-section" aria-label="始め方">
+    <!-- ===== 9. サポート内容 ===== -->
+    <section class="ms-section" aria-label="サポート内容">
+      <div class="container">
+        <p class="ms-section__label js-visible">Support</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">サポート内容</h2>
+
+        <div class="js-visible" data-delay="200">
+          <table class="info-table">
+            <tr>
+              <th>質問サポート</th>
+              <td>LINE・Zoomで毎日OK、回数無制限。分からないことはいつでも相談できます。</td>
+            </tr>
+            <tr>
+              <th>案件経験</th>
+              <td>受講中から実際の仕事に取り組むことができます。実践を通じてスキルを磨きます。</td>
+            </tr>
+            <tr>
+              <th>修了後サポート</th>
+              <td>卒業後も相談窓口を利用できます。継続的にフォローアップいたします。</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. 始め方フロー ===== -->
+    <section class="ms-section ms-section--alt" id="flow" aria-label="始め方">
       <div class="container">
         <p class="ms-section__label js-visible">Flow</p>
         <h2 class="ms-section__title js-visible" data-delay="100">始め方</h2>
@@ -155,33 +313,135 @@
         <div class="ms-flow">
           <div class="ms-flow__step js-visible" data-delay="0">
             <div class="ms-flow__circle">1</div>
-            <h3 class="ms-flow__name">LINEに登録</h3>
-            <p class="ms-flow__desc">LINEを追加するだけで始められます。</p>
+            <h3 class="ms-flow__name">LINEを登録する</h3>
+            <p class="ms-flow__desc">まずはLINEで友だち追加。登録は無料で、1分で完了。</p>
           </div>
           <div class="ms-flow__line js-visible" data-delay="50"></div>
           <div class="ms-flow__step js-visible" data-delay="100">
             <div class="ms-flow__circle">2</div>
-            <h3 class="ms-flow__name">在宅ワーク診断</h3>
-            <p class="ms-flow__desc">あなたに合った在宅ワークが分かる診断をお届けします。</p>
+            <h3 class="ms-flow__name">無料動画が届く</h3>
+            <p class="ms-flow__desc">登録後すぐに、在宅ワークの始め方が分かる無料動画をお届け。</p>
           </div>
           <div class="ms-flow__line js-visible" data-delay="150"></div>
           <div class="ms-flow__step js-visible" data-delay="200">
             <div class="ms-flow__circle">3</div>
-            <h3 class="ms-flow__name">個別相談</h3>
-            <p class="ms-flow__desc">気になった方はLINEで個別相談をご予約いただけます。</p>
+            <h3 class="ms-flow__name">無料診断会</h3>
+            <p class="ms-flow__desc">あなたに合った在宅ワークが分かる診断を実施。個別相談もご予約可能。</p>
           </div>
           <div class="ms-flow__line js-visible" data-delay="250"></div>
           <div class="ms-flow__step js-visible" data-delay="300">
             <div class="ms-flow__circle">4</div>
-            <h3 class="ms-flow__name">スタート</h3>
-            <p class="ms-flow__desc">あなたに合ったペースで在宅ワークを始めます。</p>
+            <h3 class="ms-flow__name">サポート開始</h3>
+            <p class="ms-flow__desc">担当講師がつき、マンツーマンサポートがスタート。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="ms-section ms-section--alt" aria-label="よくある質問">
+    <!-- ===== 11. 受講生の声 ===== -->
+    <section class="ms-section" id="voices" aria-label="受講生の声">
+      <div class="container">
+        <p class="ms-section__label js-visible">Voice</p>
+        <h2 class="ms-section__title js-visible" data-delay="100">受講生の声</h2>
+
+        <div class="ms-voice-grid">
+          <!-- 体験談 1 -->
+          <article class="ms-voice-card js-visible" data-delay="0">
+            <div class="ms-voice-card__header">
+              <div class="ms-voice-card__avatar" data-initial="M">M</div>
+              <div class="ms-voice-card__meta">
+                <h3 class="ms-voice-card__name">匿名ママさん<span>（30代）</span></h3>
+                <p class="ms-voice-card__profile">1歳児ママ・育休中</p>
+              </div>
+            </div>
+            <div class="ms-voice-card__change">
+              <div class="ms-voice-card__before">
+                <span class="ms-voice-card__label">Before</span>
+                <p>寝かしつけ後の時間を活用したかった</p>
+              </div>
+              <div class="ms-voice-card__arrow">&rarr;</div>
+              <div class="ms-voice-card__after">
+                <span class="ms-voice-card__label">After</span>
+                <p>子どものための余裕が生まれた</p>
+              </div>
+            </div>
+            <p class="ms-voice-card__text">育休中で時間はあるものの、何をしたらいいか分からない日々でした。ママサポに出会って、寝かしつけ後のすきま時間を使ってInstagram運用を始めました。自分のペースで学べるので、子育てとの両立もストレスなくできています。少しずつ収入が生まれて、子どものために使えるお金が増えたのが一番嬉しいです。</p>
+          </article>
+
+          <!-- 体験談 2 -->
+          <article class="ms-voice-card js-visible" data-delay="100">
+            <div class="ms-voice-card__header">
+              <div class="ms-voice-card__avatar" data-initial="N">N</div>
+              <div class="ms-voice-card__meta">
+                <h3 class="ms-voice-card__name">なつこさん<span>（38歳）</span></h3>
+                <p class="ms-voice-card__profile">専業主婦・小学生ママ</p>
+              </div>
+            </div>
+            <div class="ms-voice-card__change">
+              <div class="ms-voice-card__before">
+                <span class="ms-voice-card__label">Before</span>
+                <p>在宅ワーク未経験で不安だった</p>
+              </div>
+              <div class="ms-voice-card__arrow">&rarr;</div>
+              <div class="ms-voice-card__after">
+                <span class="ms-voice-card__label">After</span>
+                <p>自分のペースで働けるように</p>
+              </div>
+            </div>
+            <p class="ms-voice-card__text">専業主婦歴が長く、社会に出ることに不安がありました。でもママサポでは基礎の基礎から教えてもらえるので、パソコンが苦手な私でも安心でした。今ではオンライン秘書として在宅で仕事ができるようになり、子どもが学校に行っている間に自分のペースで働けています。「自分にもできることがある」と自信が持てるようになりました。</p>
+          </article>
+
+          <!-- 体験談 3 -->
+          <article class="ms-voice-card js-visible" data-delay="200">
+            <div class="ms-voice-card__header">
+              <div class="ms-voice-card__avatar" data-initial="E">E</div>
+              <div class="ms-voice-card__meta">
+                <h3 class="ms-voice-card__name">えりなさん<span>（35歳）</span></h3>
+                <p class="ms-voice-card__profile">元看護師・育児のため退職</p>
+              </div>
+            </div>
+            <div class="ms-voice-card__change">
+              <div class="ms-voice-card__before">
+                <span class="ms-voice-card__label">Before</span>
+                <p>副業で挫折した経験があった</p>
+              </div>
+              <div class="ms-voice-card__arrow">&rarr;</div>
+              <div class="ms-voice-card__after">
+                <span class="ms-voice-card__label">After</span>
+                <p>生活に余裕が生まれた</p>
+              </div>
+            </div>
+            <p class="ms-voice-card__text">以前、独学で副業に挑戦して挫折した経験がありました。ママサポでは個別に合ったプランを提案してもらえたので、自分に向いている物販を無理なく始められました。LINEでいつでも質問できるのが心強く、つまずいてもすぐに解決できます。今では看護師を辞めたことに後悔はなく、子どものそばにいながら収入を得られる生活に満足しています。</p>
+          </article>
+
+          <!-- 体験談 4 -->
+          <article class="ms-voice-card js-visible" data-delay="300">
+            <div class="ms-voice-card__header">
+              <div class="ms-voice-card__avatar" data-initial="Y">Y</div>
+              <div class="ms-voice-card__meta">
+                <h3 class="ms-voice-card__name">ゆかりさん<span>（33歳）</span></h3>
+                <p class="ms-voice-card__profile">2児のママ・パート勤務</p>
+              </div>
+            </div>
+            <div class="ms-voice-card__change">
+              <div class="ms-voice-card__before">
+                <span class="ms-voice-card__label">Before</span>
+                <p>パート勤務のみで将来が不安</p>
+              </div>
+              <div class="ms-voice-card__arrow">&rarr;</div>
+              <div class="ms-voice-card__after">
+                <span class="ms-voice-card__label">After</span>
+                <p>理想の暮らしに近づいた</p>
+              </div>
+            </div>
+            <p class="ms-voice-card__text">パートだけでは将来の教育費が不安で、何か始めたいと思っていました。ママサポの個別診断でWEBデザインを勧めてもらい、Canvaでバナー制作を学び始めました。パートの合間にコツコツ続けて、今ではクラウドソーシングで案件も受けられるように。子どもたちに「やりたいこと」を叶えてあげられる自分に少しずつ近づいている実感があります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 12. FAQ ===== -->
+    <section class="ms-section ms-section--alt" id="faq" aria-label="よくある質問">
       <div class="container">
         <p class="ms-section__label js-visible">FAQ</p>
         <h2 class="ms-section__title js-visible" data-delay="100">よくある質問</h2>
@@ -193,7 +453,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>はい、大丈夫です。Instagram運用などスマホだけで始められる在宅ワークもご提案できます。</p>
+              <p>はい、大丈夫です。Instagram運用などスマホだけで始められる在宅ワークもご提案できます。パソコンがなくても安心してスタートしていただけます。</p>
             </div>
           </div>
           <div class="faq-item">
@@ -202,7 +462,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>お子さんが寝ている時間やすきま時間を活用して、少しずつ進められるプランをご用意しています。</p>
+              <p>お子さんが寝ている時間やすきま時間を活用して、少しずつ進められるプランをご用意しています。無理のないペースで取り組めるようサポートいたします。</p>
             </div>
           </div>
           <div class="faq-item">
@@ -220,7 +480,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>あなたに合った在宅ワークが分かる診断コンテンツをお届けします。その後、ご希望の方には個別相談のご案内をお送りします。</p>
+              <p>あなたに合った在宅ワークが分かる診断コンテンツをお届けします。その後、ご希望の方には個別相談のご案内をお送りします。営業メッセージが大量に届くことはありません。</p>
             </div>
           </div>
           <div class="faq-item">
@@ -229,7 +489,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>もちろん大丈夫です。多くの受講生が育休中にスタートしています。基礎からしっかりサポートいたします。</p>
+              <p>もちろん大丈夫です。多くの受講生が育休中にスタートしています。基礎からしっかりサポートいたしますので、ブランクを気にする必要はありません。</p>
             </div>
           </div>
           <div class="faq-item">
@@ -238,14 +498,14 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>累計1,000名以上のママを支援してきた実績と、一人ひとりに合わせた個別診断が特徴です。あなたの状況に最適な在宅ワークをご提案します。</p>
+              <p>累計1,000名以上のママを支援してきた実績と、一人ひとりに合わせた個別診断が特徴です。あなたの性格・ライフスタイル・目標に合わせて最適な在宅ワークをご提案します。</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
+    <!-- ===== 13. CTA ===== -->
     <section class="ms-cta" aria-label="LINE登録">
       <div class="container">
         <div class="ms-cta__inner js-visible">
@@ -268,25 +528,6 @@
         <div class="footer-col">
           <img src="assets/img/logo.png" alt="Re:tro" class="footer-logo__img">
           <p>株式会社Retro<br>〒101-0061<br>東京都千代田区神田三崎町3-4-4<br>グラン水道橋1F</p>
-          <div class="footer-social">
-            <a href="https://line.me/" target="_blank" rel="noopener noreferrer" aria-label="LINE">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 5.81 2 10.5c0 4.08 3.42 7.5 8.05 8.36.31.07.74.21.85.48.1.25.06.63.03.88l-.14.81c-.04.24-.2.93.81.51 1.01-.43 5.44-3.2 7.43-5.48C20.96 13.86 22 12.26 22 10.5 22 5.81 17.52 2 12 2z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/mamasapo_jp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41.61.24 1.05.52 1.51.98s.74.9.98 1.51c.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44a4.08 4.08 0 01-.98 1.51 4.08 4.08 0 01-1.51.98c-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.08 4.08 0 01-1.51-.98 4.08 4.08 0 01-.98-1.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44.24-.61.52-1.05.98-1.51s.9-.74 1.51-.98c.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.84 5.84 0 00-2.11 1.37A5.84 5.84 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.37 2.11a5.84 5.84 0 002.11 1.37c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.84 5.84 0 002.11-1.37 5.84 5.84 0 001.37-2.11c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.84 5.84 0 00-1.37-2.11A5.84 5.84 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
-            </a>
-            <a href="https://note.com/re_tro" target="_blank" rel="noopener noreferrer" aria-label="note">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h8v2H8V8zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col__title">ママサポ</p>
-          <a href="mamasapo.html">ママサポ Home</a>
-          <a href="ms-about.html">サービスについて</a>
-          <a href="ms-courses.html">コース</a>
-          <a href="ms-voice.html">受講生の声</a>
-          <a href="ms-faq.html">よくある質問</a>
         </div>
         <div class="footer-col">
           <p class="footer-col__title">Information</p>
