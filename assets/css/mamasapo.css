@@ -92,6 +92,23 @@ body:has(.ms-page-hero) .site-header .hamburger span {
 
 .ms-hero-screen--second .ms-hero-screen__overlay {
   background: rgba(42, 35, 32, 0.3);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.ms-hero-screen--second.is-visible .ms-hero-screen__overlay {
+  opacity: 1;
+}
+
+.ms-hero-screen--second .ms-hero-fixed__desc {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+}
+
+.ms-hero-screen--second.is-visible .ms-hero-fixed__desc {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* 1画面目: 右下 */
@@ -120,15 +137,20 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   box-sizing: border-box;
 }
 
+.ms-hero-screen--first .ms-hero-screen__content {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 75%);
+  padding: calc(var(--grid) * 3);
+  border-radius: 50%;
+}
+
 .ms-hero-fixed__label {
   font-family: var(--font-en);
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   margin-bottom: 2rem;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 0, 0, 0.3);
 }
 
 .ms-hero-fixed__title {
@@ -139,7 +161,6 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   color: #fff;
   margin-bottom: 0;
   letter-spacing: 0.06em;
-  text-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
 .ms-hero-fixed__desc {

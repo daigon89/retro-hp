@@ -106,8 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---- Hero fixed background visibility ----
-  // No JS needed — handled by CSS clip-path on wrapper
+  // ---- Hero 2nd screen fade-in ----
+  const heroSecond = document.querySelector('.ms-hero-screen--second');
+  if (heroSecond) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heroSecond.classList.add('is-visible');
+          heroObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    heroObserver.observe(heroSecond);
+  }
 
   // ---- FAQ Accordion ----
   document.querySelectorAll('.faq-question').forEach(btn => {
