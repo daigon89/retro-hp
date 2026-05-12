@@ -86,9 +86,12 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   pointer-events: none;
 }
 
-.ms-hero-screen--first .ms-hero-screen__overlay,
+.ms-hero-screen--first .ms-hero-screen__overlay {
+  background: none;
+}
+
 .ms-hero-screen--second .ms-hero-screen__overlay {
-  background: rgba(42, 35, 32, 0.1);
+  background: rgba(42, 35, 32, 0.3);
 }
 
 /* 1画面目: 右下 */
@@ -122,9 +125,10 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;
   margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 0, 0, 0.3);
 }
 
 .ms-hero-fixed__title {
@@ -135,6 +139,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   color: #fff;
   margin-bottom: 0;
   letter-spacing: 0.06em;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
 .ms-hero-fixed__desc {
