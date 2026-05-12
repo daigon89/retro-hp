@@ -128,7 +128,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   margin-left: auto;
   margin-top: auto;
   text-align: right;
-  padding: 0 calc(var(--grid) * 4) calc(var(--grid) * 4) 0;
+  padding: 0 calc(var(--grid) * 2) calc(var(--grid) * 2) 0;
   max-width: 900px;
   white-space: nowrap;
 }
@@ -920,7 +920,7 @@ body:has(.ms-page-hero) .site-header .hamburger span {
   }
 
   .ms-hero-screen__content--right {
-    padding: calc(var(--grid) * 4) var(--grid) 0;
+    padding: calc(var(--grid) * 2) var(--grid) 0;
     text-align: left;
     margin-left: 0;
     margin-top: 0;
