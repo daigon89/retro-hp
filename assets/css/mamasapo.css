@@ -210,20 +210,13 @@ body:has(.ms-hero-simple) .site-header .hamburger span {
 .ms-achieve__card {
   text-align: center;
   width: 100%;
-  padding: 2rem 2rem 2.8rem;
-  background: var(--accent);
-  color: #fff;
+  padding: 2.4rem 2rem 3.2rem;
+  background: #fff;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), 50% 100%, 0 calc(100% - 18px));
   margin-bottom: -1px;
-}
-
-.ms-achieve__card:nth-child(odd) {
-  background: var(--accent);
-}
-
-.ms-achieve__card:nth-child(even) {
-  background: var(--accent-hover);
+  border: 1px solid var(--border);
+  border-bottom: none;
 }
 
 .ms-achieve__card:first-child {
@@ -233,23 +226,30 @@ body:has(.ms-hero-simple) .site-header .hamburger span {
 .ms-achieve__card:last-child {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   border-radius: 0 0 var(--radius) var(--radius);
-  padding-bottom: 2rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .ms-achieve__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
   font-family: var(--font-en);
   font-size: 1.3rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  opacity: 0.6;
-  margin-bottom: 0.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
 }
 
 .ms-achieve__text {
-  font-family: var(--ms-sans);
+  font-family: var(--ms-serif);
   font-size: 1.5rem;
   font-weight: 400;
-  color: #fff;
+  color: var(--ms-text);
   line-height: 1.5;
 }
 
