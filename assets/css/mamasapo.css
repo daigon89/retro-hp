@@ -24,8 +24,9 @@ body:has(.ms-page-hero) {
 /* ---------- ママサポ ヘッダー上書き ---------- */
 /* ママサポページではヘッダーに常に背景+ダークテキスト */
 body:has(.ms-hero-fixed) .site-header,
+body:has(.ms-hero-wrapper) .site-header,
 body:has(.ms-page-hero) .site-header {
-  background: rgba(255, 255, 255, 0.95);
+  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
